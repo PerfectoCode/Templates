@@ -17,7 +17,7 @@ if __name__ == '__main__' :
     #TODO: Set your cloud host and credentials
     host = 'MY_HOST.perfectomobile.com'
     
-    #Create webdriver
+    #Create WebDriver
     driver = webdriver.Remote('https://' + host + '/nexperience/perfectomobile/wd/hub' , capabilities)
     #Define driver time out
     driver.implicitly_wait(30)
