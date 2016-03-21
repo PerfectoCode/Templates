@@ -38,7 +38,7 @@ public class RemoteWebDriverWebDemo {
             try {
                 driver.close();
 
-        		Map<String, Object> params = new HashMap<>(); 
+        	Map<String, Object> params = new HashMap<>(); 
                 driver.executeScript("mobile:execution:close", params);
 
                 // In case you want to down the report or the report attachments, do it here.
