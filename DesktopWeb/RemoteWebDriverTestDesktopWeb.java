@@ -15,13 +15,13 @@ public class RemoteWebDriverWebDemo {
         capabilities.setCapability("user", "MY_USER");
         capabilities.setCapability("password", "MY_PASSWORD");
 
-		// TODO: Set the Web Machine configuration
-		capabilities.setCapability("platformName", "Windows");
-		capabilities.setCapability("platformVersion", "8.1");
-		capabilities.setCapability("browserName", "Firefox");
-		capabilities.setCapability("browserVersion", "40");
-		
-		// TODO: Name your script
+	// TODO: Set the Web Machine configuration
+	capabilities.setCapability("platformName", "Windows");
+	capabilities.setCapability("platformVersion", "8.1");
+	capabilities.setCapability("browserName", "Firefox");
+	capabilities.setCapability("browserVersion", "40");
+	
+	// TODO: Name your script
         //capabilities.setCapability("scriptName", "RemoteWebDriverTest");
 
         RemoteWebDriver driver = new RemoteWebDriver(new URL("https://" + host + "/nexperience/perfectomobile/wd/hub"), capabilities);
