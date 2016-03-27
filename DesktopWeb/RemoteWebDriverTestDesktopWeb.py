@@ -40,12 +40,13 @@ if __name__ == '__main__' :
             driver.close()
             params = {}
             driver.execute_script("mobile:execution:close", params)
-            #in case you want download the report you enable this script : 
-            """
-            file_name = 'Report'
-            format = 'pdf' #report format
-            PerfectoLabUtils.download_report(driver , format , file_name)
-            """
+            
+            #// In case you want to down the report or the report attachments, do it here. 
+            #"""
+            #file_name = 'Report'
+            #format = 'pdf' #report format
+            #PerfectoLabUtils.download_report(driver , format , file_name)
+            #"""
         except Exception as e:
             print e
         
