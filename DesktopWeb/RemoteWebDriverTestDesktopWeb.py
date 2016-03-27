@@ -10,11 +10,16 @@ if __name__ == '__main__' :
             'platformVersion'   : '8.1',
             'browserName'       : 'Chrome',
             'browserVersion'    : '48',
-            'user'              : "MY_USER",
-            'password'          : "MY_PASSWORD"
+            
+            #TODO: Set your cloud host credentials
+            'user'              : 'MY_USER',
+            'password'          : 'MY_PASSWORD',
+            
+            #TODO: Name your script
+            'scriptName'        : 'RemoteWebDriverTest'
             }
     
-    #TODO: Set your cloud host and credentials
+    #TODO: Set your cloud host
     host = 'MY_HOST.perfectomobile.com'
     
     #Create WebDriver
@@ -31,6 +36,7 @@ if __name__ == '__main__' :
 
     finally:
         try:
+            # Close Driver
             driver.close()
             params = {}
             driver.execute_script("mobile:execution:close", params)
@@ -43,6 +49,7 @@ if __name__ == '__main__' :
         except Exception as e:
             print e
         
+        # Quit Driver
         driver.quit()
  
     print 'Run ended'
