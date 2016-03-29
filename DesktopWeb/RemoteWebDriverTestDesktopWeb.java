@@ -38,10 +38,9 @@ public class RemoteWebDriverWebDemo {
             try {
                 driver.close();
 
-        	Map<String, Object> params = new HashMap<>(); 
-                driver.executeScript("mobile:execution:close", params);
-
                 // In case you want to down the report or the report attachments, do it here.
+		// Map<String, Object> params = new HashMap<>(); 
+                // driver.executeScript("mobile:execution:close", params);
                 // PerfectoLabUtils.downloadReport(driver, "pdf", "C:\\test\\report");
                 // PerfectoLabUtils.downloadAttachment(driver, "video", "C:\\test\\report\\video", "flv");
                 // PerfectoLabUtils.downloadAttachment(driver, "image", "C:\\test\\report\\images", "jpg");
