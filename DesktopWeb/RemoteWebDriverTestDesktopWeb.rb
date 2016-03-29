@@ -34,11 +34,9 @@ driver.get "http://www.perfectomobile.com"
 puts "Test ended, closing driver"
 driver.close
 
-#In case you want to down the report or the report attachments, do it here.
-command = 'mobile:report:download';
-
 # In case you want to down the report or the report attachments, do it here.
 #puts "Downloading report"
+#command = 'mobile:report:download';
 #params = {}
 #params['type'] = 'pdf'
 #report = driver.execute_script(command, params)
