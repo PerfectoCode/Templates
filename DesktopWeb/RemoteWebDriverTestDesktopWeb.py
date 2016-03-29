@@ -41,11 +41,11 @@ if __name__ == '__main__' :
             # Close Driver
             print 'Test ended, closing driver'
             driver.close()
-            params = {}
-            driver.execute_script("mobile:execution:close", params)
             
             #// In case you want to down the report or the report attachments, do it here. 
             # print 'Downloading report'
+            #params = {}
+            #driver.execute_script("mobile:execution:close", params)
             #"""
             #file_name = 'Report'
             #format = 'pdf' #report format
