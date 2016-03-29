@@ -53,19 +53,18 @@ namespace PerfectoLabSeleniumTestGoogleHomePage
             driver.Close();
 
             // In case you want to download the report or the report attachments, do it here.
-            try
-            {
-                var parameters = new Dictionary<string, object>();
-                driver.ExecuteScript("mobile:execution:close", parameters);
-
+            //try
+            //{
+                //var parameters = new Dictionary<string, object>();
+                //driver.ExecuteScript("mobile:execution:close", parameters);
                 //driver.DownloadReport(DownloadReportTypes.pdf, "C:\\test\\report");
                 //driver.DownloadAttachment(DownloadAttachmentTypes.video, "C:\\test\\report\\video", "flv");
                 //driver.DownloadAttachment(DownloadAttachmentTypes.image, "C:\\test\\report\\images", "jpg");
-            }
-            catch (Exception ex)
-            {
-                Trace.WriteLine(string.Format("Error getting test logs: {0}", ex.Message));
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Trace.WriteLine(string.Format("Error getting test logs: {0}", ex.Message));
+            //}
 
             driver.Quit();
         }
