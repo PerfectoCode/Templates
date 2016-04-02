@@ -17,6 +17,8 @@ public final class WindTunnelUtils {
     public static final String NAME = "name";
     public static final String DESCRIPTION = "description";
     public static final String IMAGE = "image";
+    
+    public static final String SINGLE_TEST_REPORT_URL_CAPABILITY = "singleTestReportUrl";
 
     public static final String WIND_TUNNEL_PERSONA_CAPABILITY = "windTunnelPersona";
     public static final String WIND_TUNNEL_LOCATION_CAPABILITY = "windTunnelLocation";
@@ -24,6 +26,7 @@ public final class WindTunnelUtils {
     public static final String WIND_TUNNEL_ORIENTATION_CAPABILITY = "windTunnelOrientation";
     public static final String WIND_TUNNEL_VNETWORK_CAPABILITY = "windTunnelVNetwork";
     public static final String WIND_TUNNEL_BACKGROUND_RUNNING_APPS_CAPABILITY = "windTunnelBackgroundRunningApps";
+    //WIND_TUNNEL_REPORT_URL_CAPABILITY is deprecated, use SINGLE_TEST_REPORT_URL_CAPABILITY instead
     public static final String WIND_TUNNEL_REPORT_URL_CAPABILITY = "windTunnelReportUrl";
     public static final String WIND_TUNNEL_PERSONA_KEY_CAPABILITY = "windTunnelPersonaKey";
 
