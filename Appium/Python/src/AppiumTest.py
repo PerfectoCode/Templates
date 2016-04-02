@@ -60,8 +60,8 @@ class AppiumTest:
             try:
                 # disconnect from the Remote server
                 if driver is not None:
-                    # Retrieve the URL of the Wind Tunnel Report, can be saved to your execution summary and used to download the report at a later point
-                    report_url = driver.capabilities[WindTunnelUtils.WIND_TUNNEL_REPORT_URL_CAPABILITY]
+                    # Retrieve the URL of the Single Test Report, can be saved to your execution summary and used to download the report at a later point
+                    report_url = driver.capabilities[WindTunnelUtils.SINGLE_TEST_REPORT_URL_CAPABILITY]
 
                     driver.close()
 

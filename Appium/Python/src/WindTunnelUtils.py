@@ -14,12 +14,15 @@ class WindTunnelUtils:
     DESCRIPTION = "description"
     IMAGE = "image"
 
+    SINGLE_TEST_REPORT_URL_CAPABILITY = "singleTestReportUrl"
+
     WIND_TUNNEL_PERSONA_CAPABILITY = "windTunnelPersona"
     WIND_TUNNEL_LOCATION_CAPABILITY = "windTunnelLocation"
     WIND_TUNNEL_LOCATION_ADDRESS_CAPABILITY = "windTunnelLocationAddress"
     WIND_TUNNEL_ORIENTATION_CAPABILITY = "windTunnelOrientation"
     WIND_TUNNEL_VNETWORK_CAPABILITY = "windTunnelVNetwork"
     WIND_TUNNEL_BACKGROUND_RUNNING_APPS_CAPABILITY = "windTunnelBackgroundRunningApps"
+    #WIND_TUNNEL_REPORT_URL_CAPABILITY is deprecated, use SINGLE_TEST_REPORT_URL_CAPABILITY instead
     WIND_TUNNEL_REPORT_URL_CAPABILITY = "windTunnelReportUrl"
     WIND_TUNNEL_PERSONA_KEY_CAPABILITY = "windTunnelPersonaKey"
 
