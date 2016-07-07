@@ -1,1 +1,1 @@
-Reporting java 
+*Java template with Reportium"
