@@ -8,8 +8,8 @@ This repository contains code templates for consuming Perfecto services from dif
 |----------------|------------------|
 |[Appium](https://github.com/PerfectoCode/Templates/tree/master/Appium) | Appium driver templates for native application automation|
 |[Desktop Web](https://github.com/PerfectoCode/Templates/tree/master/DesktopWeb) | Desktop web templates using Selenium WebDriver |
-|Selenium | Selenium templates for web automation |
-|Utils | Perfecto Lab Utils |
+|[Selenium](https://github.com/PerfectoCode/Templates/tree/master/Selenium) | Selenium templates for web automation |
+|[Utils](https://github.com/PerfectoCode/Templates/tree/master/Utils) | Perfecto Lab Utils |
 
 
 
