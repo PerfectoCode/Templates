@@ -4,7 +4,7 @@ This template examine the using of Ruby testing framework named TestUnit.<br/>
 TestUnit make your life easier by defining global test telmplates,such as before and after method for each of your tests.
 
 ### Quick start: 
-1. Set your Perfecto Lab username, password and host at [test_setup.rb](test_setup.rb) file:
+- Set your Perfecto Lab username, password and host at [test_setup.rb](test_setup.rb) file:
 ```ruby 
 #your host url
 host = 'MY_HOST.perfectomobile.com'
@@ -14,7 +14,7 @@ capabilities['user'] = 'MY_USER'
 capabilities['password'] = 'MY_PASS' 
 ```
 
-2. Set your favorite device capabilities also at [test_setup.rb](test_setup.rb) file:
+- Set your favorite device capabilities also at [test_setup.rb](test_setup.rb) file:
 ```ruby 
 #device capabilities goes here:
 capabilities = {
@@ -27,7 +27,7 @@ capabilities = {
 }
 ```
 
-3. Write your test def the test template class MyTests which found at [test.rb](test.rb) file:<br/>
+- Write your test def the test template class MyTests which found at [test.rb](test.rb) file:<br/>
 Remmber :exclamation: your test functions names must start with "tests_" 
 ```ruby 
 def test_my_test
@@ -35,7 +35,7 @@ def test_my_test
 end
 ```
 
-4. Execute the test class [test.rb](test.rb) using:
+- Execute the test class [test.rb](test.rb) using:
 ```bash
 ruby test.rb
 ```
