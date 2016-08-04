@@ -1,7 +1,7 @@
 ## Ruby TestUnit
 
-This template examine the using of Ruby testing framework named TestUnit.<br/>
-TestUnit make your life easier by defining global test telmplates,such as before and after method for each of your tests.
+This template examine the using of Ruby testing framework named UnitTest.<br/>
+UnitTest make your life easier by defining global test telmplates,such as before and after method for each of your tests.<br/>
 
 ### Quick start: 
 - Set your Perfecto Lab username, password and host at [test_setup.rb](test_setup.rb) file:
@@ -28,7 +28,7 @@ capabilities = {
 ```
 
 - Write your test def the test template class MyTests which found at [test.rb](test.rb) file:<br/>
-Remmber :exclamation: your test functions names must start with "tests_" 
+Remmber your test functions names must start with "tests_" :exclamation: 
 ```ruby 
 def test_my_test
     #Here goes your test ...
