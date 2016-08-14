@@ -104,7 +104,7 @@ public class AppiumTemplate {
 		PerfectoExecutionContext perfectoExecutionContext = new PerfectoExecutionContext.PerfectoExecutionContextBuilder()
 				.withProject(new Project("Sample Appium-Reportium project" , "1.0"))
 				.withContextTags("Regression") //Optional
-				.withWebDriver(driver) //Optional
+				.withWebDriver(driver) 
 				.build();
 		
 		return new ReportiumClientFactory().createPerfectoReportiumClient(perfectoExecutionContext);
