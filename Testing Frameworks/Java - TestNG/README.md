@@ -2,11 +2,11 @@
 
 This template using TestNG testing framework and Maven for dependencie managment for Java programming language. 
 
-The template contains two files, the first: [PerfectoTestConf](src/test/java/PerfectoTestConf) which includes the configuration of the test.
+The template contains two files, the first: [PerfectoTestConf](src/test/java/PerfectoTestConf.java) which includes the configuration of the test.
 
 In this file you will find `@BeforeTest` and `@AfterTest` methods which determines what happens before and after each test.
 
-The second file: [testClass](src/test//java/testClass), at this file the tests are implemented.
+The second file: [testClass](src/test/java/testClass.java), at this file the tests are implemented.
 
 That way you keep your code DRY (without repeats) and easy to read.
 
