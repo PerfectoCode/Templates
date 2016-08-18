@@ -2,7 +2,6 @@
 
 **Java:**
 - [TestNG](http://testng.org/doc/index.html)
-- [JUnit](http://junit.org/junit4/)
 
 **C#:**
 - [Nunit](http://www.nunit.org/)
