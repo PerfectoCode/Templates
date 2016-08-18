@@ -6,8 +6,8 @@
     <ProjectGuid>{FD81D7A4-BDB5-4183-83BD-1B233EF57FDD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NUnit_Reporting</RootNamespace>
-    <AssemblyName>NUnit-Reporting</AssemblyName>
+    <RootNamespace>NUnit</RootNamespace>
+    <AssemblyName>NUnit</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
