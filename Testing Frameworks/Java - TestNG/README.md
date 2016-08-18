@@ -12,7 +12,7 @@ That way you keep your code DRY (without repeats) and easy to read.
 
 **Quick Start:**
 - Import the project to Intellij or Eclipse as a Maven project. 
-- Set your Perfecto lab user, password and host at [PerfectoTestConf](src/test/java/PerfectoTestConf):
+- Set your Perfecto lab user, password and host at [PerfectoTestConf](src/test/java/PerfectoTestConf.java):
 ```Java
     final String perfecto_user = "My_User";
     final String perfecto_pass = "My_Pass";
@@ -31,6 +31,6 @@ That way you keep your code DRY (without repeats) and easy to read.
         </classes>
     </test>
 ```  
-- Write your test at [testClass](src/test//java/testClass) file and add more test methods with `@Test` annotation.
+- Write your test at [testClass](src/test//java/testClass.java) file and add more test methods with `@Test` annotation.
 
 For the full documentation of TestNG click [here](http://testng.org/doc/documentation-main.html).
