@@ -33,4 +33,4 @@ That way you keep your code DRY (without repeats) and easy to read.
 ```  
 - Write your test at [testClass](src/test//java/testClass.java) file and add more test methods with `@Test` annotation.
 
-For the full documentation of TestNG click [here](http://testng.org/doc/documentation-main.html).
+For the complete documentation of TestNG click [here](http://testng.org/doc/documentation-main.html).
