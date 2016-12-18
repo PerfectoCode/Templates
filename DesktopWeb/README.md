@@ -7,6 +7,6 @@ This folder contains code samples for using Selenium Remote WebDriver on desktop
 - RemoteWebDriverTestDesktopWeb.rb : Template file for Ruby
 
 **To do**:
-- Replace MY_HOST.perfectomobile.com with your cloud host name
-- Replace MY_USER with your cloud user name
-- Replace MY_PASSWORD with your cloud password
+- Replace MY_HOST.perfectomobile.com with your Perfecto Lab host name
+- Replace MY_USER with your Perfecto Lab user name
+- Replace MY_PASSWORD with your Perfecto Lab password
