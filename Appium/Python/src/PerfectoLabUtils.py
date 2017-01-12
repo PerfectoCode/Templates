@@ -35,11 +35,15 @@ class PerfectoLabUtils:
     # Call this method if you want the script to share the devices with the Perfecto Lab plugin.
     @staticmethod
     def set_execution_id_capability(capabilities, host):
-        connector = EclipseConnector()
-        eclipse_host = connector.get_host()
-        if eclipse_host is None or eclipse_host.lower() == host.lower():
-            execution_id = connector.get_execution_id()
-            capabilities[EclipseConnector.ECLIPSE_EXECUTION_ID] = execution_id
+        try:
+            connector = EclipseConnector()
+            eclipse_host = connector.get_host()
+            if eclipse_host is None or eclipse_host.lower() == host.lower():
+                execution_id = connector.get_execution_id()
+                capabilities[EclipseConnector.ECLIPSE_EXECUTION_ID] = execution_id
+
+        except:
+            print('Error connecting with the Eclipse connector - Resuming execution without the execution id capability')
 
     # Download all the report attachments with a certain type.
     # type - video, image, vital, network
