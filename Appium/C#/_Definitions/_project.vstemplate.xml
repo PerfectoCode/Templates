@@ -1,0 +1,46 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Perfecto Lab Appium Test Project</Name>
+    <Description>Perfecto Lab Appium Test Project</Description>
+    <DefaultName>PerfectoLabAppiumTestProject</DefaultName>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType></ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>Project_Templates_Item_32.png</Icon>
+    <TemplateID>2df6dcfe-9eb4-42fc-afae-f4c7871bd0d5</TemplateID>
+    <!-- Indicates how many parent folders this item template should appear in -->
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="PerfectoLabAppiumTestProject.csproj" File="PerfectoLabAppiumTestProject.csproj" ReplaceParameters="true">
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>PerfectoLabTemplateWizard, Version=9.9.9.9, Culture=Neutral, PublicKeyToken=666d7ea1a54321f4</Assembly>
+    <Assembly>NLog, Version=4.0.0.0, Culture=Neutral, PublicKeyToken=5120e14c03d0593c</Assembly>
+    <FullClassName>PerfectoLabTemplateWizard.PerfectoLabTemplateWizard</FullClassName>
+  </WizardExtension>
+  <WizardExtension>
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <packages repository="extension"
+              repositoryId="Perfecto.Lab.92445358-a04f-4786-8298-895917ca0fb4">
+      <package id="NuGet.Core" version="2.8.2" />
+      <package id="PerfectoLab" version="9.9.9.9"  />
+      <package id="Appium.WebDriver" version="1.5.0.1" />
+      <package id="Castle.Core" version="3.3.3" />
+      <package id="Newtonsoft.Json" version="9.0.1" />
+	  <package id="Perfecto-Reporting" version="1.0.1"  />
+	  <package id="System.Net.Http" version="2.0.20710.0"  />
+	  <package id="Microsoft.Net.Http" version="2.0.20710.0"  />
+      <package id="Selenium.Support" version="2.48.2" />
+      <package id="Selenium.WebDriver" version="2.48.2" />
+    </packages>
+  </WizardData>
+</VSTemplate>

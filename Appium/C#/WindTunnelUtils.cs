@@ -4,7 +4,7 @@ using System.Text;
 using System.Web.Script.Serialization;
 using OpenQA.Selenium.Remote;
 
-namespace CSharp
+namespace $safeprojectname$
 {
     public static class WindTunnelUtils
     {
@@ -55,20 +55,20 @@ namespace CSharp
         public const string SAM = "Sam";
         public const string SARA = "Sara";
         public const string EMPTY = "Empty";
-        #endregion
+    #endregion
 
-        #region Public static methods
-        /// <summary>
-        /// The Wind Tunnel Point of interest (POI) allows mobile teams to pin point real user specific issues around performance, 
-        /// functionality and more. By using POI users can get a detailed dashboard with view into the actual error for a specific transaction.
-        /// This functions adds a Point of interest to the Wind Tunnel report.
-        /// Example: string pointOfInterest = PointOfInterest(driver, "Page load", PointOfInterestStatus.SUCCESS);
-        /// </summary>
-        /// <param name="driver">RemoteWebDriver entity</param>
-        /// <param name="name">Name of point of interest</param>
-        /// <param name="status">Defined point of interest status</param>
-        /// <returns>The command response contains basic details about the completion status and relevant timers. It may also include additional data that is specific for the command.</returns>
-        public static string PointOfInterest(RemoteWebDriver driver, string name, PointOfInterestStatus status)
+    #region Public static methods
+    /// <summary>
+    /// The Wind Tunnel Point of interest (POI) allows mobile teams to pin point real user specific issues around performance, 
+    /// functionality and more. By using POI users can get a detailed dashboard with view into the actual error for a specific transaction.
+    /// This functions adds a Point of interest to the Wind Tunnel report.
+    /// Example: string pointOfInterest = PointOfInterest(driver, "Page load", PointOfInterestStatus.SUCCESS);
+    /// </summary>
+    /// <param name="driver">RemoteWebDriver entity</param>
+    /// <param name="name">Name of point of interest</param>
+    /// <param name="status">Defined point of interest status</param>
+    /// <returns>The command response contains basic details about the completion status and relevant timers. It may also include additional data that is specific for the command.</returns>
+    public static string PointOfInterest(RemoteWebDriver driver, string name, PointOfInterestStatus status)
         {
             var parameters = new Dictionary<string, object>();
             parameters.Add(POINT_OF_INTEREST_DESCRIPTION, name);
@@ -98,30 +98,30 @@ namespace CSharp
             return driver.ExecuteScript(MOBILE_STATUS_TIMER_COMMAND, parameters).ToString();
         }
 
-        /// <summary>
-        /// This method will create a new persona and upload it to the repository.
-        /// Example:
-        ///  string repositoryKey = uploadWindTunnelPersona(host, user, password, "Pedro", "This is Pedro's profile", "PUBLIC:personas/Perdo.jpg", null,
-        ///  "Boston", "landscape", "4G LTE Advanced Good", "Waze,YouTube", "PRIVATE:Personas", personaDevice);
-        /// capabilities.SetCapability(WindTunnelUtils.WIND_TUNNEL_PERSONA_KEY_CAPABILITY, repositoryKey);
-        /// </summary>
-        /// <param name="host">The cloud host name</param>
-        /// <param name="user">The cloud username</param>
-        /// <param name="password">The cloud password</param>
-        /// <param name="name">Persona name</param>
-        /// <param name="description">Persona description</param>
-        /// <param name="image">Persona image as repository item</param>
-        /// <param name="location">Location as coordinates with format latitude,longitude</param>
-        /// <param name="locationAddress">Location as address</param>
-        /// <param name="orientation">Device orientation (landscape or portrait)</param>
-        /// <param name="vnetworkProfile">Virtual network profile</param>
-        /// <param name="applications">List of application names</param>
-        /// <param name="repositoryFolder">Repository key</param>
-        /// <param name="device">Persona's device, object created by "CreateDevice()" function</param>
-        /// <returns>Repository key for the newly created persona</returns>
-        public static string UploadWindTunnelPersona(string host, string user, string password, string name, string description, string image,
-                string location, string locationAddress, string orientation, string vnetworkProfile, string applications, string repositoryFolder,
-                object device)
+    /// <summary>
+    /// This method will create a new persona and upload it to the repository.
+    /// Example:
+    ///  string repositoryKey = uploadWindTunnelPersona(host, user, password, "Pedro", "This is Pedro's profile", "PUBLIC:personas/Perdo.jpg", null,
+    ///  "Boston", "landscape", "4G LTE Advanced Good", "Waze,YouTube", "PRIVATE:Personas", personaDevice);
+    /// capabilities.SetCapability(WindTunnelUtils.WIND_TUNNEL_PERSONA_KEY_CAPABILITY, repositoryKey);
+    /// </summary>
+    /// <param name="host">The cloud host name</param>
+    /// <param name="user">The cloud username</param>
+    /// <param name="password">The cloud password</param>
+    /// <param name="name">Persona name</param>
+    /// <param name="description">Persona description</param>
+    /// <param name="image">Persona image as repository item</param>
+    /// <param name="location">Location as coordinates with format latitude,longitude</param>
+    /// <param name="locationAddress">Location as address</param>
+    /// <param name="orientation">Device orientation (landscape or portrait)</param>
+    /// <param name="vnetworkProfile">Virtual network profile</param>
+    /// <param name="applications">List of application names</param>
+    /// <param name="repositoryFolder">Repository key</param>
+    /// <param name="device">Persona's device, object created by "CreateDevice()" function</param>
+    /// <returns>Repository key for the newly created persona</returns>
+    public static string UploadWindTunnelPersona(string host, string user, string password, string name, string description, string image,
+            string location, string locationAddress, string orientation, string vnetworkProfile, string applications, string repositoryFolder,
+            object device)
         {
             if (repositoryFolder == null)
                 throw new Exception("Can't upload persona without repository folder");
