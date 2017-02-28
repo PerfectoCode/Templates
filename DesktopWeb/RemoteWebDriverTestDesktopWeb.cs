@@ -27,11 +27,15 @@ namespace PerfectoLabSeleniumTestGoogleHomePage
             capabilities.SetCapability("user", "MY_USER");
             capabilities.SetCapability("password", "MY_PASSWORD");
 
-            //TODO: Set the Web Machine configuration, for example:
+            //TODO: Set the Web Machine configuration, - these capabilities may be copied from the Launch dialogue
             capabilities.SetCapability("platformName", "Windows");
-            capabilities.SetCapability("platformVersion", "8.1");
+            capabilities.SetCapability("platformVersion", "10");
             capabilities.SetCapability("browserName", "Chrome");
-            capabilities.SetCapability("browserVersion", "48");
+            // browserVersion may be a specific version number or "beta" or "latest" (always the latest version)
+            capabilities.SetCapability("browserVersion", "latest");
+            capabilities.SetCapability("resolution", "1366x768");
+            // location - default may be configured by the site administrator
+            capabilities.SetCapability("location", "US East");
 
             capabilities.SetPerfectoLabExecutionId(host);
 
