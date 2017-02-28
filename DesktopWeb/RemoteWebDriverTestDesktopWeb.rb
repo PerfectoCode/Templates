@@ -4,9 +4,11 @@ require 'uri'
 capabilities = {
   #TODO: Set the Web Machine configuration, for example:
   :platformName => 'Windows',
-  :platformVersion => '7',
+  :platformVersion => '10',
   :browserName => 'Firefox',
-  :browserVersion => '42',
+  :browserVersion => '51',
+  :resolution => '1366x768',
+  :location => 'US East',
   
   #TODO: Set your cloud host credentials
   :user => 'MY_USER',
