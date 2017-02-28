@@ -6,11 +6,12 @@ if __name__ == '__main__' :
     
     #TODO: Set the Web Machine configuration, for example:
     capabilities = {
-            'platformName'      : 'Windows',
-            'platformVersion'   : '8.1',
-            'browserName'       : 'Chrome',
-            'browserVersion'    : '48',
-            
+            'platformName': 'Windows',
+            'platformVersion': '10',
+            'browserName': 'Firefox',
+            'browserVersion': '51',
+            'resolution': '1366x768',
+            'location': 'US East',            
             #TODO: Set your cloud host credentials
             'user'              : 'MY_USER',
             'password'          : 'MY_PASSWORD',
