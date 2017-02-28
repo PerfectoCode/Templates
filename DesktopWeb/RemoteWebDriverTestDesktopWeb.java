@@ -15,12 +15,15 @@ public class RemoteWebDriverWebDemo {
         capabilities.setCapability("user", "MY_USER");
         capabilities.setCapability("password", "MY_PASSWORD");
 
-	// TODO: Set the Web Machine configuration
+	// TODO: Set the Web Machine configuration - these capabilities may be copied from the Launch dialogue
 	capabilities.setCapability("platformName", "Windows");
-	capabilities.setCapability("platformVersion", "8.1");
-	capabilities.setCapability("browserName", "Firefox");
-	capabilities.setCapability("browserVersion", "40");
-	
+	capabilities.setCapability("platformVersion", "10");
+	capabilities.setCapability("browserName", "Chrome");
+	// browserVersion may be a specific version number or "beta" or "latest" (always the latest version)
+	capabilities.setCapability("browserVersion", "latest");
+	capabilities.setCapability("resolution", "1366x768");
+	// location - default may be configured by the site administrator
+	capabilities.setCapability("location", "US East");	
 	// TODO: Name your script
         //capabilities.setCapability("scriptName", "RemoteWebDriverTest");
 
