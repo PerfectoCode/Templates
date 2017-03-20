@@ -26,25 +26,25 @@ import com.perfecto.reportium.test.result.TestResultFactory;
  * For programming samples and updated templates refer to the Perfecto GitHub at: https://github.com/PerfectoCode
  */
 public class AppiumTest {
-
+    
     public static void main(String[] args) throws MalformedURLException, IOException {
         System.out.println("Run started");
-
+        
         String browserName = "mobileOS";
         DesiredCapabilities capabilities = new DesiredCapabilities(browserName, "", Platform.ANY);
         String host = "myHost.perfectomobile.com";
         capabilities.setCapability("user", "myUser");
         capabilities.setCapability("password", "myPassword");
-
+        
         //TODO: Change your device ID
         capabilities.setCapability("deviceName", "12345");
-
+        
         // Use the automationName capability to define the required framework - Appium (this is the default) or PerfectoMobile.
         capabilities.setCapability("automationName", "Appium");
-
+        
         // Call this method if you want the script to share the devices with the Perfecto Lab plugin.
         PerfectoLabUtils.setExecutionIdCapability(capabilities, host);
-
+        
         // Application settings examples.
         // capabilities.setCapability("app", "PRIVATE:applications/Errands.ipa");
         // For Android:
@@ -52,59 +52,77 @@ public class AppiumTest {
         // capabilities.setCapability("appActivity", ".activities.BrowseActivity");
         // For iOS:
         // capabilities.setCapability("bundleId", "com.yoctoville.errands");
-
+        
         // Add a persona to your script (see https://community.perfectomobile.com/posts/1048047-available-personas)
         //capabilities.setCapability(WindTunnelUtils.WIND_TUNNEL_PERSONA_CAPABILITY, WindTunnelUtils.GEORGIA);
-
+        
         // Name your script
         // capabilities.setCapability("scriptName", "AppiumTest");
-
+        
         AndroidDriver driver = new AndroidDriver(new URL("https://" + host + "/nexperience/perfectomobile/wd/hub"), capabilities);
         // IOSDriver driver = new IOSDriver(new URL("https://" + host + "/nexperience/perfectomobile/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-
-        // Reporting client. For more details, see https://github.com/perfectocode/samples/wiki/reporting
+        
+        // Reporting client. For more details, see http://developers.perfectomobile.com/display/PD/Reporting
         PerfectoExecutionContext perfectoExecutionContext = new PerfectoExecutionContext.PerfectoExecutionContextBuilder()
-                .withProject(new Project("My Project", "1.0"))
-                .withJob(new Job("My Job", 45))
-                .withContextTags("tag1")
-                .withWebDriver(driver)
-                .build();
+        .withProject(new Project("My Project", "1.0"))
+        .withJob(new Job("My Job", 45))
+        .withContextTags("tag1")
+        .withWebDriver(driver)
+        .build();
         ReportiumClient reportiumClient = new ReportiumClientFactory().createPerfectoReportiumClient(perfectoExecutionContext);
-
+        
         try {
-            reportiumClient.testStart("My test mame", new TestContext("tag2", "tag3"));
-
+            reportiumClient.testStart("My test name", new TestContext("tag2", "tag3"));
+            
             // write your code here
-
+            
             // reportiumClient.testStep("step1"); // this is a logical step for reporting
+            // add commands...
             // reportiumClient.testStep("step2");
-
+            // more commands...
+            
             reportiumClient.testStop(TestResultFactory.createSuccess());
         } catch (Exception e) {
             reportiumClient.testStop(TestResultFactory.createFailure(e.getMessage(), e));
             e.printStackTrace();
         } finally {
             try {
-                // Retrieve the URL of the Single Test Report, can be saved to your execution summary and used to download the report at a later point
+                driver.quit();
+                
+                // Retrieve the URL to the DigitalZoom Report (= Reportium Application) for an aggregated view over the execution
                 String reportURL = reportiumClient.getReportUrl();
-
-                // For documentation on how to export reporting PDF, see https://github.com/perfectocode/samples/wiki/reporting
-                // String reportPdfUrl = (String)(driver.getCapabilities().getCapability("reportPdfUrl"));
-
-                driver.close();
-
-                // In case you want to download the report or the report attachments, do it here.
-                // PerfectoLabUtils.downloadAttachment(driver, "video", "C:\\test\\report\\video", "flv");
-                // PerfectoLabUtils.downloadAttachment(driver, "image", "C:\\test\\report\\images", "jpg");
-
+                
+                // Retrieve the URL to the Execution Summary PDF Report
+                String reportPdfUrl = (String)(driver.getCapabilities().getCapability("reportPdfUrl"));
+                // For detailed documentation on how to export the Execution Summary PDF Report, the Single Test report and other attachments such as
+                // video, images, device logs, vitals and network files - see http://developers.perfectomobile.com/display/PD/Exporting+the+Reports
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            driver.quit();
         }
-
+        
         System.out.println("Run ended");
     }
+    
+    private static void switchToContext(RemoteWebDriver driver, String context) {
+        RemoteExecuteMethod executeMethod = new RemoteExecuteMethod(driver);
+        Map<String,String> params = new HashMap<String,String>();
+        params.put("name", context);
+        executeMethod.execute(DriverCommand.SWITCH_TO_CONTEXT, params);
+    }
+    
+    private static String getCurrentContextHandle(RemoteWebDriver driver) {
+        RemoteExecuteMethod executeMethod = new RemoteExecuteMethod(driver);
+        String context =  (String) executeMethod.execute(DriverCommand.GET_CURRENT_CONTEXT_HANDLE, null);
+        return context;
+    }
+    
+    private static List<String> getContextHandles(RemoteWebDriver driver) {
+        RemoteExecuteMethod executeMethod = new RemoteExecuteMethod(driver);
+        List<String> contexts =  (List<String>) executeMethod.execute(DriverCommand.GET_CONTEXT_HANDLES, null);
+        return contexts;
+    }
+    
 }
