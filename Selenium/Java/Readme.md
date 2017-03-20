@@ -1,11 +1,6 @@
-## Java template includes
+## Perfecto Java Template Include:
 -	Perfecto Lab and device setup
--	Simple test sample
+-	Ready for writing your tests
 -	Perfecto Reporting components
 
-:information_source: Click [here](https://github.com/PerfectoCode/Samples/wiki/Reporting) for Reporting Wiki 
-
-## Jar requirements
-- Perfecto Reporting jars [download](https://repository-perfectomobile.forge.cloudbees.com/public/com/perfecto/reporting-sdk/reportium-java/)
-- Selenium jars [download](http://www.seleniumhq.org/download/)
-- Appium jars [download](http://appium.io/downloads.html) 
+:information_source: Click [here](http://developers.perfectomobile.com/display/PD/Reporting) for more info about DigitalZoom Reporting.

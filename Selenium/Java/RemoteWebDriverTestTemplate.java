@@ -4,10 +4,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.html5.*;
-import org.openqa.selenium.logging.*;
 import org.openqa.selenium.remote.*;
-import org.openqa.selenium.Cookie.Builder;
 
 import com.perfecto.reportium.client.ReportiumClient;
 import com.perfecto.reportium.client.ReportiumClientFactory;
@@ -15,15 +12,16 @@ import com.perfecto.reportium.model.Job;
 import com.perfecto.reportium.model.PerfectoExecutionContext;
 import com.perfecto.reportium.model.Project;
 import com.perfecto.reportium.test.TestContext;
-import com.perfecto.reportium.test.result.TestResult;
 import com.perfecto.reportium.test.result.TestResultFactory;
 
 /**
- * For programming samples and updated templates refer to the Perfecto GitHub at: https://github.com/PerfectoCode
+ * This template is for users that use DigitalZoom Reporting (ReportiumClient).
+ * For any other use cases please see the basic template at https://github.com/PerfectoCode/Templates.
+ * For more programming samples and updated templates refer to the Perfecto Documentation at: http://developers.perfectomobile.com/
  */
 public class RemoteWebDriverTest {
 
-    public static void main(String[] args) throws MalformedURLException, IOException {
+    public static void main(String[] args) throws IOException {
         System.out.println("Run started");
 
         String browserName = "mobileOS";
@@ -41,16 +39,13 @@ public class RemoteWebDriverTest {
         // Call this method if you want the script to share the devices with the Perfecto Lab plugin.
         PerfectoLabUtils.setExecutionIdCapability(capabilities, host);
 
-        // Add a persona to your script (see https://community.perfectomobile.com/posts/1048047-available-personas)
-        //capabilities.setCapability(WindTunnelUtils.WIND_TUNNEL_PERSONA_CAPABILITY, WindTunnelUtils.GEORGIA);
-
         // Name your script
         // capabilities.setCapability("scriptName", "RemoteWebDriverTest");
 
         RemoteWebDriver driver = new RemoteWebDriver(new URL("https://" + host + "/nexperience/perfectomobile/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
-        // Reporting client. For more details, see https://github.com/perfectocode/samples/wiki/reporting
+        // Reporting client. For more details, see http://developers.perfectomobile.com/display/PD/Reporting
         PerfectoExecutionContext perfectoExecutionContext = new PerfectoExecutionContext.PerfectoExecutionContextBuilder()
                 .withProject(new Project("My Project", "1.0"))
                 .withJob(new Job("My Job", 45))
@@ -60,12 +55,15 @@ public class RemoteWebDriverTest {
         ReportiumClient reportiumClient = new ReportiumClientFactory().createPerfectoReportiumClient(perfectoExecutionContext);
 
         try {
-            reportiumClient.testStart("My test mame", new TestContext("tag2", "tag3"));
+            reportiumClient.testStart("My test name", new TestContext("tag2", "tag3"));
 
             // write your code here
 
             // reportiumClient.testStep("step1"); // this is a logical step for reporting
+            // add commands...
             // reportiumClient.testStep("step2");
+            // more commands...
+
 
             reportiumClient.testStop(TestResultFactory.createSuccess());
         } catch (Exception e) {
@@ -73,23 +71,19 @@ public class RemoteWebDriverTest {
             e.printStackTrace();
         } finally {
             try {
-                // Retrieve the URL of the Single Test Report, can be saved to your execution summary and used to download the report at a later point
+                driver.quit();
+
+                // Retrieve the URL to the DigitalZoom Report (= Reportium Application) for an aggregated view over the execution
                 String reportURL = reportiumClient.getReportUrl();
 
-                // For documentation on how to export reporting PDF, see https://github.com/perfectocode/samples/wiki/reporting
-                // String reportPdfUrl = (String)(driver.getCapabilities().getCapability("reportPdfUrl"));
-
-                driver.close();
-
-                // In case you want to download the report or the report attachments, do it here.
-                // PerfectoLabUtils.downloadAttachment(driver, "video", "C:\\test\\report\\video", "flv");
-                // PerfectoLabUtils.downloadAttachment(driver, "image", "C:\\test\\report\\images", "jpg");
+                // Retrieve the URL to the Execution Summary PDF Report
+                String reportPdfUrl = (String)(driver.getCapabilities().getCapability("reportPdfUrl"));
+                // For detailed documentation on how to export the Execution Summary PDF Report, the Single Test report and other attachments such as
+                // video, images, device logs, vitals and network files - see http://developers.perfectomobile.com/display/PD/Exporting+the+Reports
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            driver.quit();
         }
 
         System.out.println("Run ended");

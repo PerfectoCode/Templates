@@ -1,27 +1,17 @@
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
+import com.perfectomobile.selenium.util.EclipseConnector;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.remote.*;
-
-import com.perfectomobile.selenium.util.EclipseConnector;
 
 public class PerfectoLabUtils {
 
@@ -36,7 +26,8 @@ public class PerfectoLabUtils {
 	 * Download the report. 
 	 * type - pdf, html, csv, xml
 	 * Example: downloadReport(driver, "pdf", "C:\\test\\report");
-	 * 
+     *
+	 * Note that this method is relevant only for local hosted device lab (AKA "On Premise") and not for DigitalZoom (AKA ReportiumClient) users
 	 */
 	public static void downloadReport(RemoteWebDriver driver, String type, String fileName) throws IOException {
 		try { 
@@ -59,6 +50,8 @@ public class PerfectoLabUtils {
 	 * Examples:
 	 * downloadAttachment(driver, "video", "C:\\test\\report\\video", "flv");
 	 * downloadAttachment(driver, "image", "C:\\test\\report\\images", "jpg");
+     *
+     * Note that this method is relevant only for local hosted device lab (AKA "On Premise") and not for DigitalZoom (AKA ReportiumClient) users
 	 */
 	public static void downloadAttachment(RemoteWebDriver driver, String type, String fileName, String suffix) throws IOException {
 		try {
