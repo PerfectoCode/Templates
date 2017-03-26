@@ -9,7 +9,9 @@ from PerfectoLabUtils import PerfectoLabUtils
 from selenium import webdriver
 from perfecto import *
 
-# For programming samples and updated templates refer to the Perfecto GitHub at: https://github.com/PerfectoCode
+""" This template is for users that use DigitalZoom Reporting (ReportiumClient).
+    For any other use cases please see the basic template at https://github.com/PerfectoCode/Templates.
+    For more programming samples and updated templates refer to the Perfecto Documentation at: http://developers.perfectomobile.com/ """
 class RemoteWebDriverTest:
     def __init__(self):
         pass
@@ -43,6 +45,7 @@ class RemoteWebDriverTest:
         driver = webdriver.Remote("https://" + host + "/nexperience/perfectomobile/wd/hub", capabilities)
         driver.implicitly_wait(15)
 
+        # Reporting client. For more details, see http://developers.perfectomobile.com/display/PD/Reporting
         perfecto_execution_context = PerfectoExecutionContext(driver, ['tag1'], Job('My Job', 45), Project('My Project', '1.0'))
         reporting_client = PerfectoReportiumClient(perfecto_execution_context)
 
@@ -52,8 +55,10 @@ class RemoteWebDriverTest:
 
             # write your code here
 
-            # reporting_client.test_step('step1') # this is a logical step for reporting
+            # reporting_client.test_step('step1') // this is a logical step for reporting
+            # add commands...
             # reporting_client.test_step('step2')
+            # more commands...
 
             reporting_client.test_stop(TestResultFactory.create_success())
         except Exception as e:
