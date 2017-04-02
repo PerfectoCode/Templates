@@ -20,9 +20,9 @@ using Reportium.model;
 namespace PerfectoLabAppiumTestProject
 {
     /// <summary>
-    /// Summary description for AppiumTest
-    /// 
-    /// For programming samples and updated templates refer to the Perfecto GitHub at: https://github.com/PerfectoCode
+    /// This template is for users that use DigitalZoom Reporting (ReportiumClient).
+    /// For any other use cases please see the basic template at https://github.com/PerfectoCode/Templates.
+    /// For more programming samples and updated templates refer to the Perfecto Documentation at: http://developers.perfectomobile.com/
     /// </summary>
     [TestClass]
     public class AppiumTest
@@ -72,7 +72,7 @@ namespace PerfectoLabAppiumTestProject
             //driver = new IOSDriver<IWebElement>(url, capabilities);
             driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15));
 
-            // Reporting client. For more details, see https://github.com/perfectocode/samples/wiki/reporting
+            // Reporting client. For more details, see http://developers.perfectomobile.com/display/PD/Reporting
             PerfectoExecutionContext perfectoExecutionContext = new PerfectoExecutionContext.PerfectoExecutionContextBuilder()
                     .withProject(new Project("My Project", "1.0"))
                     .withJob(new Job("My Job", 45))
@@ -117,7 +117,9 @@ namespace PerfectoLabAppiumTestProject
                 // write your code here
 
                 // reportiumClient.testStep("step1"); // this is a logical step for reporting
+                // add commands...
                 // reportiumClient.testStep("step2");
+                // add commands...
 
                 reportiumClient.testStop(TestResultFactory.createSuccess());
             }
