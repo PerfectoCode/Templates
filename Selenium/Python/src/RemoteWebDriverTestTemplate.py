@@ -1,5 +1,3 @@
-import time
-
 from selenium.webdriver import ActionChains
 from selenium.webdriver.remote.command import Command
 from selenium.webdriver.remote.mobile import Mobile
