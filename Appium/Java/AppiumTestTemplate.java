@@ -23,7 +23,9 @@ import com.perfecto.reportium.test.result.TestResult;
 import com.perfecto.reportium.test.result.TestResultFactory;
 
 /**
- * For programming samples and updated templates refer to the Perfecto GitHub at: https://github.com/PerfectoCode
+ * This template is for users that use DigitalZoom Reporting (ReportiumClient).
+ * For any other use cases please see the basic template at https://github.com/PerfectoCode/Templates.
+ * For more programming samples and updated templates refer to the Perfecto Documentation at: http://developers.perfectomobile.com/
  */
 public class AppiumTest {
     
