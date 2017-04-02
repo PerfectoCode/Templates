@@ -1,10 +1,9 @@
-import com.perfectomobile.intellij.connector.ConnectorConfiguration;
-import com.perfectomobile.intellij.connector.impl.client.ClientSideLocalFileSystemConnector;
 import com.perfectomobile.selenium.util.EclipseConnector;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import com.perfectomobile.intellij.connector.impl.client.ProcessOutputLogAdapter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -16,6 +15,8 @@ import java.util.Map;
 
 public class PerfectoLabUtils {
     
+    private static final Logger logger = LoggerFactory.getLogger(PerfectoLabUtils.class);
+    
     private static final String HTTPS = "https://";
     private static final String MEDIA_REPOSITORY = "/services/repositories/media/";
     private static final String UPLOAD_OPERATION = "operation=upload&overwrite=true";
@@ -26,6 +27,7 @@ public class PerfectoLabUtils {
      * type - pdf, html, csv, xml
      * Example: downloadReport(driver, "pdf", "C:\\test\\report");
      *
+     * Note that this method is relevant only for local hosted device lab (AKA "On Premise") and not for DigitalZoom (AKA ReportiumClient) users
      */
     public static void downloadReport(RemoteWebDriver driver, String type, String fileName) throws IOException {
         try {
@@ -48,6 +50,8 @@ public class PerfectoLabUtils {
      * Examples:
      * downloadAttachment(driver, "video", "C:\\test\\report\\video", "flv");
      * downloadAttachment(driver, "image", "C:\\test\\report\\images", "jpg");
+     *
+     * Note that this method is relevant only for local hosted device lab (AKA "On Premise") and not for DigitalZoom (AKA ReportiumClient) users
      */
     public static void downloadAttachment(RemoteWebDriver driver, String type, String fileName, String suffix) throws IOException {
         try {
@@ -122,16 +126,15 @@ public class PerfectoLabUtils {
      * Sets the execution id capability
      */
     public static void setExecutionIdCapability(DesiredCapabilities capabilities, String host) throws IOException {
-        ClientSideLocalFileSystemConnector connector = new ClientSideLocalFileSystemConnector(new ProcessOutputLogAdapter(System.err, System.out, System.out, System.out));
-        ConnectorConfiguration connectorConfiguration = connector.getConnectorConfiguration();
-        if (connectorConfiguration == null) {
-            return;
-        }
-        
-        String intellijHost = connectorConfiguration.getHost();
-        if (intellijHost == null || (intellijHost.equalsIgnoreCase(host))) {
-            String executionId = connectorConfiguration.getExecutionId();
-            capabilities.setCapability(EclipseConnector.ECLIPSE_EXECUTION_ID, executionId);
+        try {
+            EclipseConnector connector = new EclipseConnector();
+            String eclipseHost = connector.getHost();
+            if ((eclipseHost == null) || (eclipseHost.equalsIgnoreCase(host))) {
+                String executionId = connector.getExecutionId();
+                capabilities.setCapability(EclipseConnector.ECLIPSE_EXECUTION_ID, executionId);
+            }
+        } catch (Exception e) {
+            logger.warn("Error connecting with the Eclipse connector - Resuming execution without the execution id capability");
         }
     }
     
