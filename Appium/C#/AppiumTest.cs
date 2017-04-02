@@ -67,7 +67,7 @@ namespace PerfectoLabAppiumTestProject
             // Name your script
             // capabilities.SetCapability("scriptName", "AppiumTest");
 
-            var url = new Uri(string.Format("http$IsConnectUsingHttps$://{0}/nexperience/perfectomobile/wd/hub", host));
+            var url = new Uri(string.Format("http://{0}/nexperience/perfectomobile/wd/hub", host));
             driver = new AndroidDriver<IWebElement>(url, capabilities);
             //driver = new IOSDriver<IWebElement>(url, capabilities);
             driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15));

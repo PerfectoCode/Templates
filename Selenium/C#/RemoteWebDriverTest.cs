@@ -47,7 +47,7 @@ namespace PerfectoLabSeleniumTestProject
             // Name your script
             // capabilities.SetCapability("scriptName", "RemoteWebDriverTest");
 
-            var url = new Uri(string.Format("http$IsConnectUsingHttps$://{0}/nexperience/perfectomobile/wd/hub", host));
+            var url = new Uri(string.Format("http://{0}/nexperience/perfectomobile/wd/hub", host));
             driver = new RemoteWebDriver(url, capabilities);
             driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15));
 
@@ -64,26 +64,16 @@ namespace PerfectoLabSeleniumTestProject
         [TestCleanup]
         public void PerfectoCloseConnection()
         {
+            driver.Quit();
+
             // Retrieve the URL of the Single Test Report, can be saved to your execution summary and used to download the report at a later point
             String reportURL = reportiumClient.getReportUrl();
 
             // For documentation on how to export reporting PDF, see https://github.com/perfectocode/samples/wiki/reporting
-            // String reportPdfUrl = (String)(driver.Capabilities.GetCapability("reportPdfUrl"));
+            String reportPdfUrl = (String)(driver.Capabilities.GetCapability("reportPdfUrl"));
 
-            driver.Close();
-
-            // In case you want to download the report or the report attachments, do it here.
-            //try
-            //{
-            //    driver.DownloadAttachment(DownloadAttachmentTypes.video, "C:\\test\\report\\video", "flv");
-            //    driver.DownloadAttachment(DownloadAttachmentTypes.image, "C:\\test\\report\\images", "jpg");
-            //}
-            //catch (Exception ex)
-            //{
-            //    Trace.WriteLine(string.Format("Error getting test logs: {0}", ex.Message));
-            //}
-
-            driver.Quit();
+            // For detailed documentation on how to export the Execution Summary PDF Report, the Single Test report and other attachments such as
+            // video, images, device logs, vitals and network files - see http://developers.perfectomobile.com/display/PD/Exporting+the+Reports
         }
 
         [TestMethod]
