@@ -1,5 +1,3 @@
-import time
-
 from appium.webdriver.common.multi_action import MultiAction
 from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver import ActionChains
@@ -74,24 +72,15 @@ class AppiumTest:
             print(e)
         finally:
             try:
-                # disconnect from the Remote server
-                if driver is not None:
-                    # Retrieve the URL of the Single Test Report, can be saved to your execution summary and used to download the report at a later point
-                    report_url = reporting_client.report_url()
+                driver.quit()
+                # Retrieve the URL of the Single Test Report, can be saved to your execution summary and used to download the report at a later point
+                report_url = reporting_client.report_url()
 
-                    # For documentation on how to export reporting PDF, see https://github.com/perfectocode/samples/wiki/reporting
-                    # report_pdf_url = driver.capabilities['reportPdfUrl']
-
-                    driver.close()
-
-                    # In case you want to download the report or the report attachments, do it here.
-                    # PerfectoLabUtils.download_attachment(driver, 'video', '/test/video', 'flv')
-                    # PerfectoLabUtils.download_attachment(driver, 'image', '/test/image', 'jpg')
+                # For documentation on how to export reporting PDF, see https://github.com/perfectocode/samples/wiki/reporting
+                report_pdf_url = driver.capabilities['reportPdfUrl']
 
             except Exception as e:
                 print(e)
-
-            driver.quit()
 
         print('Run ended')
 
