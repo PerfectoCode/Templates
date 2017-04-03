@@ -12,7 +12,7 @@ This repository contains code templates for consuming Perfecto services from dif
 |[Testing Frameworks](https://github.com/PerfectoCode/Templates/tree/master/Testing%20Frameworks)|Perfecto templates for different languages testing frameworks |
 |[Utils](https://github.com/PerfectoCode/Templates/tree/master/Utils) | Perfecto Lab Utils |
 |[WebDriverIO](https://github.com/PerfectoCode/Templates/tree/master/WebDriverIO)| NodeJS WebDriver for web and native app|
-| On Prem | Templates without DigitalZoom Reporting|
+| [OnPremTemplates](https://github.com/PerfectoCode/Templates/tree/master/OnPremTemplates) | Templates without DigitalZoom Reporting|
 
 Go to the [PerfectoCode Wiki](https://github.com/PerfectoCode/Samples/wiki) for a complete overview of available functionalities.
 
