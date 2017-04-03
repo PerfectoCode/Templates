@@ -6,26 +6,35 @@ using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using Reportium.test;
+using Reportium.test.Result;
+using Reportium.client;
+using Reportium.model;
 
-
-namespace PerfectoLabSeleniumTestGoogleHomePage
+namespace PerfectoLabSeleniumTestProject
 {
     /// <summary>
-    /// Summary description for MobileRemoteTest
+    /// This template is for users that use DigitalZoom Reporting (ReportiumClient).
+    /// For any other use cases please see the basic template at https://github.com/PerfectoCode/Templates.
+    /// For more programming samples and updated templates refer to the Perfecto Documentation at: http://developers.perfectomobile.com/
     /// </summary>
     [TestClass]
     public class RemoteWebDriverTest
     {
-        private RemoteWebDriverExtended driver;
+        private RemoteWebDriver driver;
+        private ReportiumClient reportiumClient;
 
         [TestInitialize]
         public void PerfectoOpenConnection()
         {
-            // TODO: Set your cloud host and credentials
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            var host = "MY_HOST.perfectomobile.com";
-            capabilities.SetCapability("user", "MY_USER");
-            capabilities.SetCapability("password", "MY_PASSWORD");
+            var browserName = "mobileOS";
+            var host = "$Cloud$";
+
+            DesiredCapabilities capabilities = new DesiredCapabilities(browserName, string.Empty, new Platform(PlatformType.Any));
+            capabilities.SetCapability("user", "$UserName$");
+            
+            //TODO: Provide your password
+            capabilities.SetCapability("password", "[ENTER YOUR PASSWORD HERE]");
 
             //TODO: Set the Web Machine configuration, - these capabilities may be copied from the Launch dialogue
             capabilities.SetCapability("platformName", "Windows");
@@ -39,57 +48,60 @@ namespace PerfectoLabSeleniumTestGoogleHomePage
 
             capabilities.SetPerfectoLabExecutionId(host);
 
-            // TODO: Name your script
-            //capabilities.SetCapability("scriptName", "RemoteWebDriverTest");
+            // Add a persona to your script (see https://community.perfectomobile.com/posts/1048047-available-personas)
+            //capabilities.SetCapability(WindTunnelUtils.WIND_TUNNEL_PERSONA_CAPABILITY, WindTunnelUtils.GEORGIA);
+
+            // Name your script
+            // capabilities.SetCapability("scriptName", "RemoteWebDriverTest");
 
             var url = new Uri(string.Format("http://{0}/nexperience/perfectomobile/wd/hub", host));
-            driver = new RemoteWebDriverExtended(new HttpAuthenticatedCommandExecutor(url), capabilities);
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(30));
-            driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30));
+            driver = new RemoteWebDriver(url, capabilities);
+            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15));
+
+            // Reporting client. For more details, see http://developers.perfectomobile.com/display/PD/Reporting
+            PerfectoExecutionContext perfectoExecutionContext = new PerfectoExecutionContext.PerfectoExecutionContextBuilder()
+                    .withProject(new Project("My Project", "1.0"))
+                    .withJob(new Job("My Job", 45))
+                    .withContextTags(new[] { "tag1" })
+                    .withWebDriver(driver)
+                    .build();
+            reportiumClient = PerfectoClientFactory.createPerfectoReportiumClient(perfectoExecutionContext);
         }
 
         [TestCleanup]
         public void PerfectoCloseConnection()
         {
-            // Retrieve the URL of the Single Test Report, can be saved to your execution summary and used to download the report at a later point
-            string reportUrl = (string)(driver.Capabilities.GetCapability(WindTunnelUtils.WIND_TUNNEL_REPORT_URL_CAPABILITY));
-         
-            driver.Close();
-
-            // In case you want to download the report or the report attachments, do it here.
-            //try
-            //{
-                //var parameters = new Dictionary<string, object>();
-                //driver.ExecuteScript("mobile:execution:close", parameters);
-                //driver.DownloadReport(DownloadReportTypes.pdf, "C:\\test\\report");
-                //driver.DownloadAttachment(DownloadAttachmentTypes.video, "C:\\test\\report\\video", "flv");
-                //driver.DownloadAttachment(DownloadAttachmentTypes.image, "C:\\test\\report\\images", "jpg");
-            //}
-            //catch (Exception ex)
-            //{
-            //    Trace.WriteLine(string.Format("Error getting test logs: {0}", ex.Message));
-            //}
-
             driver.Quit();
+
+            // Retrieve the URL of the Single Test Report, can be saved to your execution summary and used to download the report at a later point
+            String reportURL = reportiumClient.getReportUrl();
+
+            // For documentation on how to export reporting PDF, see https://github.com/perfectocode/samples/wiki/reporting
+            String reportPdfUrl = (String)(driver.Capabilities.GetCapability("reportPdfUrl"));
+
+            // For detailed documentation on how to export the Execution Summary PDF Report, the Single Test report and other attachments such as
+            // video, images, device logs, vitals and network files - see http://developers.perfectomobile.com/display/PD/Exporting+the+Reports
         }
 
         [TestMethod]
-        public void SearchGoogle()
+        public void WebDriverTestMethod()
         {
-            // TODO: Write your test here
-            driver.Navigate().GoToUrl("http://www.perfectomobile.com");
-
-            // Take screenshot
             try
             {
-                Screenshot screenshotFile = ((ITakesScreenshot)driver).GetScreenshot();
-                // TODO: Set your screenshot target folder
-                screenshotFile.SaveAsFile(@"C:\Screenshots\SeleniumTestingScreenshot.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                reportiumClient.testStart("My test mame", new TestContextTags("tag2", "tag3"));
+
+                // write your code here
+
+                // reportiumClient.testStep("step1"); // this is a logical step for reporting
+                // add commands...
+                // reportiumClient.testStep("step2");
+                // add commands...
+
+                reportiumClient.testStop(TestResultFactory.createSuccess());
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                throw;
+                reportiumClient.testStop(TestResultFactory.createFailure(e.Message, e));
             }
         }
     }
