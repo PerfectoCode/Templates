@@ -18,14 +18,16 @@ class RemoteWebDriverTest:
     def main():
         print('Run started')
 
+        host = "myHost.perfectomobile.com"
         capabilities = {}
         capabilities['platformName'] = 'Windows'
         capabilities['platformVersion'] = '10'
         capabilities['browserName'] = 'Firefox'
         capabilities['browserVersion'] = '51'
-        host = "myHost.perfectomobile.com"
-        capabilities['user'] = "myUser"
-        capabilities['password'] = "myPassword"
+        capabilities['securityToken'] = 'Security Token'
+
+        #capabilities['user'] = "myUser"
+        #capabilities['password'] = "myPassword"
 
         # TODO: Change your device ID
         capabilities['deviceName'] = "12345"

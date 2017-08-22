@@ -7,8 +7,10 @@ require 'selenium-webdriver'
 # For more programming samples and updated templates refer to the Perfecto Documentation at: http://developers.perfectomobile.com/
 class MyTest < Test::Unit::TestCase
     
-    @@User = 'myUser'
-    @@Pass = 'myPassword'
+    #@@User = 'myUser'
+    #@@Pass = 'myPassword'
+
+    @@Token = 'mySecurityToken'
     @@Host = 'myHost.perfectomobile.com'
     
     attr_accessor :driver, :reportiumClient, :exception
@@ -24,8 +26,9 @@ class MyTest < Test::Unit::TestCase
             :browserVersion => '51',
             :resolution => '1366x768',
             :location => 'US East',
-            :user => @@User,
-            :password => @@Pass
+            :securityToken => @@Token
+            #:user => @@User,
+            #:password => @@Pass
         }
         _url = 'http://' + @@Host + '/nexperience/perfectomobile/wd/hub'
         @driver = Selenium::WebDriver.for(:remote, :url => _url, :desired_capabilities => capabilities)

@@ -25,10 +25,19 @@ public class RemoteWebDriverTest {
         System.out.println("Run started");
         
         String browserName = "mobileOS";
-        DesiredCapabilities capabilities = new DesiredCapabilities(browserName, "", Platform.ANY);
         String host = "myHost.perfectomobile.com";
-        capabilities.setCapability("user", "myUser");
-        capabilities.setCapability("password", "myPassword");
+        string token = "mySecurityToken";
+
+        //Old school credentials:
+        //String user = "username";
+        //String password = "password";
+
+        DesiredCapabilities capabilities = new DesiredCapabilities(browserName, "", Platform.ANY);
+        capabilities.setCapability("securityToken", token);
+
+        //Old school credentials
+        //capabilities.setCapability("user", user);
+        //capabilities.setCapability("password", password);
         
         // TODO: Set the Web Machine configuration - these capabilities may be copied from the Launch dialogue
         capabilities.setCapability("platformName", "Windows");
