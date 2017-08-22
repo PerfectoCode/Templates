@@ -36,11 +36,14 @@ namespace PerfectoLabAppiumTestProject
         {
             DesiredCapabilities capabilities = new DesiredCapabilities(string.Empty, string.Empty, new Platform(PlatformType.Any));
 
-            var host = "$Cloud$";
-            capabilities.SetCapability("user", "$UserName$");
+            var host = "Cloud Address";
+            var token = "Security Token";
+            //var user = "username";
+            //var password = "password"
 
-            //TODO: Provide your password
-            capabilities.SetCapability("password", "[ENTER YOUR PASSWORD HERE]");
+            capabilities.SetCapability("securityToken", token);
+            //capabilities.SetCapability("user", user);
+            //capabilities.SetCapability("password", password);
 
             //TODO: Provide your device ID
             capabilities.SetCapability("deviceName", "[ENTER YOUR DEVICE ID HERE]");

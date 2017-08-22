@@ -35,8 +35,14 @@ public class AppiumTest {
         String browserName = "mobileOS";
         DesiredCapabilities capabilities = new DesiredCapabilities(browserName, "", Platform.ANY);
         String host = "myHost.perfectomobile.com";
-        capabilities.setCapability("user", "myUser");
-        capabilities.setCapability("password", "myPassword");
+        String token = "my security token";
+        capabilities.setCapability("securityToken", token);
+
+        //old school credentials:
+        //String user = "username";
+        //String password = "password";
+        //capabilities.setCapability("user", user);
+        //capabilities.setCapability("password", password);
         
         //TODO: Change your device ID
         capabilities.setCapability("deviceName", "12345");

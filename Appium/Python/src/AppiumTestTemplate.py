@@ -22,8 +22,12 @@ class AppiumTest:
         capabilities['browserName'] = "mobileOS"
         capabilities['platform'] = "ANY"
         host = "myHost.perfectomobile.com"
-        capabilities['user'] = "myUser"
-        capabilities['password'] = "myPassword"
+        capabilities['securityToken'] = "mySecurityToken"
+
+        #Old school credentials - we recommend using security token instead
+        #capabilities['user'] = "myUser"
+        #capabilities['password'] = "myPassword"
+
 
         # TODO: Change your device ID
         capabilities['deviceName'] = "12345"
