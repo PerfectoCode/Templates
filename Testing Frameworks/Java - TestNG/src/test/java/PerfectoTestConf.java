@@ -13,9 +13,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class PerfectoTestConf {
 
-    final String perfecto_user = "My_User";
-    final String perfecto_pass = "My_Pass";
+    //Perfecto Lab Host and Security Token:
+    final String perfecto_token = "My_Token";
     final String perfecto_host = "My_Host.perfectomobile.com";
+
+    //final String perfecto_user = "My_User";
+    //final String perfecto_pass = "My_Pass";
 
     RemoteWebDriver driver;
 
@@ -34,8 +37,11 @@ public class PerfectoTestConf {
     public void setup(String platformName, String platformVersion, String browserName, String browserVersion, String screenResolution) throws MalformedURLException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("user" , perfecto_user);
-        capabilities.setCapability("password" , perfecto_pass);
+        capabilities.setCapability("securityToken", perfecto_token);
+
+        //old school credentials:
+        //capabilities.setCapability("user" , perfecto_user);
+        //capabilities.setCapability("password" , perfecto_pass);
 
         capabilities.setCapability("platformName", platformName);
         capabilities.setCapability("platformVersion", platformVersion);

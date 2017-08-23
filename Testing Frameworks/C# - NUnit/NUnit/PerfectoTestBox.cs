@@ -15,10 +15,14 @@ namespace ReportingTests.NUnit
     [TestFixture]
     class PerfectoTestBox
     {
-        //Perfecto lab username, password and host.
-        private const string PERFECTO_USER = "MY_USER";
-        private const string PERFECTO_PASS = "MY_PASS";
+        //Perfecto lab security token and host
+
         private const string PERFECTO_HOST = "MY_HOST.perfectomobile.com";
+        private const string PERFECTO_TOKEN = "MY_SECURITY_TOKEN";
+
+        //Old school credentials:
+        //private const string PERFECTO_USER = "MY_USER";
+        //private const string PERFECTO_PASS = "MY_PASS";
 
         internal static RemoteWebDriverExtended driver;
 
@@ -30,10 +34,11 @@ namespace ReportingTests.NUnit
         {
             //DesiredCapabilities capabilities = new DesiredCapabilities(browserName, string.Empty, new Platform(PlatformType.Any));
             DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.SetCapability("securityToken", token);
 
-            //Provide your Perfecto lab user and pass
-            capabilities.SetCapability("user", PERFECTO_USER);
-            capabilities.SetCapability("password", PERFECTO_PASS);
+            //Old school credentials:
+            //capabilities.SetCapability("user", PERFECTO_USER);
+            //capabilities.SetCapability("password", PERFECTO_PASS);
 
             //Device capabilities
             capabilities.SetCapability("platformName", "Android");

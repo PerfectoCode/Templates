@@ -14,8 +14,7 @@ That way you keep your code DRY (without repeats) and easy to read.
 - Import the project to Intellij or Eclipse as a Maven project. 
 - Set your Perfecto lab user, password and host at [PerfectoTestConf](src/test/java/PerfectoTestConf.java):
 ```Java
-    final String perfecto_user = "My_User";
-    final String perfecto_pass = "My_Pass";
+    final String perfecto_token = "My_Token";
     final String perfecto_host = "My_Host.perfectomobile.com";
 ```
 - At [testng.xml](testng.xml) file set your favorite device DesiredCapabilities: 
