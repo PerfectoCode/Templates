@@ -9,11 +9,19 @@ public class RemoteWebDriverWebDemo {
     public static void main(String[] args) throws MalformedURLException, IOException {
         System.out.println("Run started");
 
-        // TODO: Set your cloud host and credentials
         DesiredCapabilities capabilities = new DesiredCapabilities();
         String host = "MY_HOST.perfectomobile.com";
-        capabilities.setCapability("user", "MY_USER");
-        capabilities.setCapability("password", "MY_PASSWORD");
+        String token = "MY_TOKEN";
+        //String user = "MY_USERNAME";
+        //String password = "MY_PASSWORD;
+
+        //old credentials:
+        //String user = "MY_USERNAME";
+        //String password = "MY_PASSWORD";
+        //capabilities.setCapability("user", user);
+        //capabilities.setCapability("password", password);
+
+        capabilities.setCapability("securityToken", token);
 
 	// TODO: Set the Web Machine configuration
 	capabilities.setCapability("platformName", "Windows");

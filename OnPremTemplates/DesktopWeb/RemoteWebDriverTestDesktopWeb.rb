@@ -9,9 +9,10 @@ capabilities = {
   :browserVersion => '42',
   
   #TODO: Set your cloud host credentials
-  :user => 'MY_USER',
-  :password => 'MY_PASSWORD',
-  
+  #:user => 'MY_USER',
+  #:password => 'MY_PASSWORD',
+  :securityToken => 'MY_TOKEN',
+
   #TODO: Name your script
   :scriptName => 'RemoteWebDriverTest'
 }

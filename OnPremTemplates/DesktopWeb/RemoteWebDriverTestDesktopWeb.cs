@@ -24,8 +24,14 @@ namespace PerfectoLabSeleniumTestGoogleHomePage
             // TODO: Set your cloud host and credentials
             DesiredCapabilities capabilities = new DesiredCapabilities();
             var host = "MY_HOST.perfectomobile.com";
-            capabilities.SetCapability("user", "MY_USER");
-            capabilities.SetCapability("password", "MY_PASSWORD");
+            var token = "MY_TOKEN";
+
+            //var user = "MY_USER";
+            //var password = "MY_PASSWORD";
+            //capabilities.SetCapability("user", user);
+            //capabilities.SetCapability("password", password);
+
+            capabilities.SetCapability("securityToken", token);
 
             //TODO: Set the Web Machine configuration, for example:
             capabilities.SetCapability("platformName", "Windows");

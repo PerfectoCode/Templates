@@ -11,9 +11,10 @@ if __name__ == '__main__' :
             'browserName'       : 'Chrome',
             'browserVersion'    : '48',
             
-            #TODO: Set your cloud host credentials
-            'user'              : 'MY_USER',
-            'password'          : 'MY_PASSWORD',
+            #TODO: Set your cloud host credentials (we recommend using a Security Token instead username and password)
+            #'user'              : 'MY_USER',
+            #'password'          : 'MY_PASSWORD',
+            'securityToken'     : 'MY_TOKEN',
             
             #TODO: Name your script
             'scriptName'        : 'RemoteWebDriverTest'
