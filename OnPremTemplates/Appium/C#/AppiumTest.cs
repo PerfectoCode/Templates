@@ -27,10 +27,14 @@ namespace CSharp
             DesiredCapabilities capabilities = new DesiredCapabilities(string.Empty, string.Empty, new Platform(PlatformType.Any));
 
             var host = "MY_HOST.perfectomobile.com";
-            capabilities.SetCapability("user", "MY_USER");
+            var token = "MY_TOKEN";
+            capabilities.SetCapability("securityToken", token);
 
-            //TODO: Provide your password
-            capabilities.SetCapability("password", "MY_PASSWORD");
+            //Old Credentials:
+            //var user = "username";
+            //var password = "password";
+            //capabilities.SetCapability("user", user);
+            //capabilities.SetCapability("password", password);
 
             //TODO: Provide your device ID
             capabilities.SetCapability("deviceName", "MY_DEVICE_ID");
