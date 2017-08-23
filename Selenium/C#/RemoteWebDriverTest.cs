@@ -28,13 +28,17 @@ namespace PerfectoLabSeleniumTestProject
         public void PerfectoOpenConnection()
         {
             var browserName = "mobileOS";
-            var host = "$Cloud$";
+            var host = "My Cloud";
+            var token = "My Token";
+
+            //var user = "My Username";
+            //var password = "My Password";
 
             DesiredCapabilities capabilities = new DesiredCapabilities(browserName, string.Empty, new Platform(PlatformType.Any));
-            capabilities.SetCapability("user", "$UserName$");
-            
-            //TODO: Provide your password
-            capabilities.SetCapability("password", "[ENTER YOUR PASSWORD HERE]");
+            capabilities.SetCapability("securityToken", token);
+
+            //capabilities.SetCapability("user", user);
+            //capabilities.SetCapability("password", password);
 
             //TODO: Provide your device ID
             capabilities.SetCapability("deviceName", "[ENTER YOUR DEVICE ID HERE]");
