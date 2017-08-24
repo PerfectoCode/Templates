@@ -34,9 +34,11 @@ class  PerfectoTestingBox < Test::Unit::TestCase
 		#your host url
 		host = 'MY_HOST.perfectomobile.com'
 
-		#Your perfecto lab username and password
-		capabilities['user'] = 'MY_USER'
-		capabilities['password'] = 'MY_PASS' 
+		#Your perfecto lab credentials (using of a security token is recommended)
+		capabilities['securityToken'] = 'MY_TOKEN'
+		#capabilities['user'] = 'MY_USER'
+		#capabilities['password'] = 'MY_PASS'
+
 
 		@driver = Selenium::WebDriver.for(:remote, :url => "http://" + host + "/nexperience/perfectomobile/wd/hub", :desired_capabilities =>capabilities) 
 	end
