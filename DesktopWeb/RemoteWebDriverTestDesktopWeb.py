@@ -2,8 +2,6 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.remote.command import Command
 from selenium.webdriver.remote.mobile import Mobile
 
-from WindTunnelUtils import WindTunnelUtils
-from PerfectoLabUtils import PerfectoLabUtils
 from selenium import webdriver
 from perfecto import *
 
@@ -18,33 +16,23 @@ class RemoteWebDriverTest:
     def main():
         print('Run started')
 
-        host = "myHost.perfectomobile.com"
+        host = 'myHost.perfectomobile.com'
+        token = 'myToken'
+
         capabilities = {}
         capabilities['platformName'] = 'Windows'
         capabilities['platformVersion'] = '10'
         capabilities['browserName'] = 'Firefox'
-        capabilities['browserVersion'] = '51'
-        capabilities['securityToken'] = 'Security Token'
-
-        #capabilities['user'] = "myUser"
-        #capabilities['password'] = "myPassword"
-
-        # TODO: Change your device ID
-        capabilities['deviceName'] = "12345"
+        capabilities['browserVersion'] = 'latest'
+        capabilities['securityToken'] = token
 
         # Use the automationName capability to define the required framework - Appium (default) or PerfectoMobile.
         # capabilities['automationName'] = "PerfectoMobile"
 
-        # Call this method if you want the script to share the devices with the recording plugin.
-        PerfectoLabUtils.set_execution_id_capability(capabilities, host)
-
-        # Adds a persona to your script (see https://community.perfectomobile.com/posts/1048047-available-personas)
-        #capabilities[WindTunnelUtils.WIND_TUNNEL_PERSONA_CAPABILITY] = WindTunnelUtils.GEORGIA
-
         # Name your script
         # capabilities['scriptName'] = "RemoteWebDriverTest"
 
-        driver = webdriver.Remote("https://" + host + "/nexperience/perfectomobile/wd/hub", capabilities)
+        driver = webdriver.Remote("https://" + host + "/nexperience/perfectomobile/wd/hub/fast", capabilities)
         driver.implicitly_wait(15)
 
         # Reporting client. For more details, see http://developers.perfectomobile.com/display/PD/Reporting

@@ -1,25 +1,23 @@
 require 'selenium-webdriver'
 require 'uri'
 
+host = 'myHost.perfectomobile.com'
+token = 'myToken'
+
 capabilities = {
   #TODO: Set the Web Machine configuration, for example:
   :platformName => 'Windows',
-  :platformVersion => '7',
+  :platformVersion => '10',
   :browserName => 'Firefox',
-  :browserVersion => '42',
-  
-  #TODO: Set your cloud host credentials
-  #:user => 'MY_USER',
-  #:password => 'MY_PASSWORD',
-  :securityToken => 'MY_TOKEN',
-
+  :browserVersion => 'latest',
   #TODO: Name your script
-  :scriptName => 'RemoteWebDriverTest'
+  :scriptName => 'RemoteWebDriverTest',
+  :securityToken => token
 }
 
 #TODO: Set your cloud host
-host = 'MY_HOST.perfectomobile.com'
-url = "http://" + host + "/nexperience/perfectomobile/wd/hub"
+
+url = "http://" + host + "/nexperience/perfectomobile/wd/hub/fast"
 
 #Create WebDriver
 puts "Creating Remote WebDriver"
@@ -29,19 +27,11 @@ driver.manage.timeouts.implicit_wait = 30
 
 #TODO: Write your test here
 puts "Starting Test"
-driver.get "http://www.perfectomobile.com"
+driver.get "http://www.google.com"
 
 # Close Driver
 puts "Test ended, closing driver"
 driver.close
-
-# In case you want to down the report or the report attachments, do it here.
-#puts "Downloading report"
-#command = 'mobile:report:download';
-#params = {}
-#params['type'] = 'pdf'
-#report = driver.execute_script(command, params)
-#File.open('report_' + 'ruby' + '.pdf', 'wb') { |f| f << report.unpack("m")[0] }
 
 # Quit Driver
 puts "Done, terminating Remote WebDriver"

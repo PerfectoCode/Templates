@@ -27,20 +27,12 @@ namespace PerfectoLabSeleniumTestProject
         [TestInitialize]
         public void PerfectoOpenConnection()
         {
-            var browserName = "mobileOS";
-            var host = "cloud address";
-            var token = "security token";
 
-            //Credentials:
-            //var user = "username";
-            //var password = "password";
+            var host = "myHost.perfectomobile.com";
+            var token = "myToken";
 
-            DesiredCapabilities capabilities = new DesiredCapabilities(browserName, string.Empty, new Platform(PlatformType.Any));
+            DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.SetCapability("securityToken", token);
-
-            //Old school credentials:
-            //capabilities.SetCapability("user", user);
-            //capabilities.SetCapability("password",password);
 
             //TODO: Set the Web Machine configuration, - these capabilities may be copied from the Launch dialogue
             capabilities.SetCapability("platformName", "Windows");
@@ -60,7 +52,7 @@ namespace PerfectoLabSeleniumTestProject
             // Name your script
             // capabilities.SetCapability("scriptName", "RemoteWebDriverTest");
 
-            var url = new Uri(string.Format("http://{0}/nexperience/perfectomobile/wd/hub", host));
+            var url = new Uri(string.Format("http://{0}/nexperience/perfectomobile/wd/hub/fast", host));
             driver = new RemoteWebDriver(url, capabilities);
             driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(15));
 
@@ -84,7 +76,6 @@ namespace PerfectoLabSeleniumTestProject
 
             // For documentation on how to export reporting PDF, see https://github.com/perfectocode/samples/wiki/reporting
             String reportPdfUrl = (String)(driver.Capabilities.GetCapability("reportPdfUrl"));
-
             // For detailed documentation on how to export the Execution Summary PDF Report, the Single Test report and other attachments such as
             // video, images, device logs, vitals and network files - see http://developers.perfectomobile.com/display/PD/Exporting+the+Reports
         }

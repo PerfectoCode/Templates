@@ -1,38 +1,34 @@
 from selenium import webdriver
-from PerfectoLabUtils import PerfectoLabUtils
+
+#TODO: Set your cloud host
+host = 'myHost.perfectomobile.com'
+token = 'myToken'
 
 if __name__ == '__main__' :
     print 'Run started'
     
     #TODO: Set the Web Machine configuration, for example:
     capabilities = {
-            'platformName'      : 'Windows',
-            'platformVersion'   : '8.1',
-            'browserName'       : 'Chrome',
-            'browserVersion'    : '48',
-            
-            #TODO: Set your cloud host credentials (we recommend using a Security Token instead username and password)
-            #'user'              : 'MY_USER',
-            #'password'          : 'MY_PASSWORD',
-            'securityToken'     : 'MY_TOKEN',
-            
-            #TODO: Name your script
-            'scriptName'        : 'RemoteWebDriverTest'
-            }
-    
-    #TODO: Set your cloud host
-    host = 'MY_HOST.perfectomobile.com'
-    
+        'platformName'      : 'Windows',
+        'platformVersion'   : '8.1',
+        'browserName'       : 'Chrome',
+        'browserVersion'    : 'latest',
+        #TODO: Set your cloud host credentials (we recommend using a Security Token instead username and password)
+        'securityToken'     : token,
+        #TODO: Name your script
+        'scriptName'        : 'RemoteWebDriverTest'
+    }
+
     #Create WebDriver
     print 'Creating Remote WebDriver'
-    driver = webdriver.Remote('https://' + host + '/nexperience/perfectomobile/wd/hub' , capabilities)
+    driver = webdriver.Remote('https://' + host + '/nexperience/perfectomobile/wd/hub/fast' , capabilities)
     #Define driver time out
     driver.implicitly_wait(30)
 
     try:
         #TODO: Write your test here
         print 'Starting Test'
-        driver.get('http://www.perfectomobile.com')
+        driver.get('http://www.google.com')
     
     except Exception as e:
         print e
@@ -43,15 +39,6 @@ if __name__ == '__main__' :
             print 'Test ended, closing driver'
             driver.close()
             
-            #// In case you want to down the report or the report attachments, do it here. 
-            # print 'Downloading report'
-            #params = {}
-            #driver.execute_script("mobile:execution:close", params)
-            #"""
-            #file_name = 'Report'
-            #format = 'pdf' #report format
-            #PerfectoLabUtils.download_report(driver , format , file_name)
-            #"""
         except Exception as e:
             print e
         

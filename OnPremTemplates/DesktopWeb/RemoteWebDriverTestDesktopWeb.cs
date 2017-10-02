@@ -23,28 +23,22 @@ namespace PerfectoLabSeleniumTestGoogleHomePage
         {
             // TODO: Set your cloud host and credentials
             DesiredCapabilities capabilities = new DesiredCapabilities();
-            var host = "MY_HOST.perfectomobile.com";
-            var token = "MY_TOKEN";
-
-            //var user = "MY_USER";
-            //var password = "MY_PASSWORD";
-            //capabilities.SetCapability("user", user);
-            //capabilities.SetCapability("password", password);
-
-            capabilities.SetCapability("securityToken", token);
+            var host = "myHost.perfectomobile.com";
+            var token = "myToken";
 
             //TODO: Set the Web Machine configuration, for example:
             capabilities.SetCapability("platformName", "Windows");
             capabilities.SetCapability("platformVersion", "8.1");
             capabilities.SetCapability("browserName", "Chrome");
-            capabilities.SetCapability("browserVersion", "48");
+            capabilities.SetCapability("browserVersion", "Latest");
 
             capabilities.SetPerfectoLabExecutionId(host);
+            capabilities.SetCapability("securityToken", token);
 
             // TODO: Name your script
             //capabilities.SetCapability("scriptName", "RemoteWebDriverTest");
 
-            var url = new Uri(string.Format("http://{0}/nexperience/perfectomobile/wd/hub", host));
+            var url = new Uri(string.Format("http://{0}/nexperience/perfectomobile/wd/hub/fast", host));
             driver = new RemoteWebDriverExtended(new HttpAuthenticatedCommandExecutor(url), capabilities);
             driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(30));
             driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(30));
@@ -53,17 +47,17 @@ namespace PerfectoLabSeleniumTestGoogleHomePage
         [TestCleanup]
         public void PerfectoCloseConnection()
         {
-         
+
             driver.Close();
 
             // In case you want to download the report or the report attachments, do it here.
             //try
             //{
-                //var parameters = new Dictionary<string, object>();
-                //driver.ExecuteScript("mobile:execution:close", parameters);
-                //driver.DownloadReport(DownloadReportTypes.pdf, "C:\\test\\report");
-                //driver.DownloadAttachment(DownloadAttachmentTypes.video, "C:\\test\\report\\video", "flv");
-                //driver.DownloadAttachment(DownloadAttachmentTypes.image, "C:\\test\\report\\images", "jpg");
+            //var parameters = new Dictionary<string, object>();
+            //driver.ExecuteScript("mobile:execution:close", parameters);
+            //driver.DownloadReport(DownloadReportTypes.pdf, "C:\\test\\report");
+            //driver.DownloadAttachment(DownloadAttachmentTypes.video, "C:\\test\\report\\video", "flv");
+            //driver.DownloadAttachment(DownloadAttachmentTypes.image, "C:\\test\\report\\images", "jpg");
             //}
             //catch (Exception ex)
             //{
@@ -77,20 +71,7 @@ namespace PerfectoLabSeleniumTestGoogleHomePage
         public void SearchGoogle()
         {
             // TODO: Write your test here
-            driver.Navigate().GoToUrl("http://www.perfectomobile.com");
-
-            // Take screenshot
-            try
-            {
-                Screenshot screenshotFile = ((ITakesScreenshot)driver).GetScreenshot();
-                // TODO: Set your screenshot target folder
-                screenshotFile.SaveAsFile(@"C:\Screenshots\SeleniumTestingScreenshot.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                throw;
-            }
+            driver.Navigate().GoToUrl("http://www.google.com");
         }
     }
 }
