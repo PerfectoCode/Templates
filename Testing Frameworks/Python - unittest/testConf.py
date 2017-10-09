@@ -3,12 +3,15 @@ import unittest
 
 class PerfectoTestBox(unittest.TestCase):
 
-    global user, password, host, capabilities
-    #Set your Perfecto Lab user, pass and host
-    user = "MY_USER"
-    password = "MY_PASS"    
+    global user, password, host, capabilities, token
+    #Set your Perfecto Lab host and security token
+    token = "MY_TOKEN"
     host = "MY_HOST.perfectomobile.com"
-    
+
+    #user = "MY_USER"
+    #password = "MY_PASS"
+
+
     #Set your test device capabilities
     capabilities = {
         'platformName': 'Android',
@@ -18,9 +21,10 @@ class PerfectoTestBox(unittest.TestCase):
     }
 
     def setUp(self):
-        global user, password, host, capabilities
-        capabilities['user'] = user
-        capabilities['password'] = password
+        global host, capabilities, token #, user, password
+        capabilities['securityToken'] = token
+        #capabilities['user'] = user
+        #capabilities['password'] = password
         self.init_driver()
 
     def init_driver(self):

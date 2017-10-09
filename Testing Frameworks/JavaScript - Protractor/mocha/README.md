@@ -1,7 +1,7 @@
 # Protractor + Mocha
 The project demonstrates using of Protractor and Mocha testing framework for JS.   
 
-:information_source: Click [here](https://community.perfectomobile.com/series/27942) for a guide to get started with Protractor.
+:information_source: Click [here](https://github.com/PerfectoCode/Reporting-Samples/tree/master/JavaScript/protractor-sample/mocha) for a guide to get started with Protractor.
 
 ## Getting started
 Install NodeJS dependencies with this command:

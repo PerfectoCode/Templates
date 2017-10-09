@@ -16,14 +16,5 @@ public class testClass extends PerfectoTestConf {
 
         //Searching for the search bar and sends string
         driver.findElement(By.name("q")).sendKeys("PerfectoCode GitHub");
-
-        //Searching for the search butt
-        driver.findElement(By.className("sbico")).click();
-
-        //Navigate to the first search result
-        driver.findElement(By.cssSelector("#rso > div > div:nth-child(1) > div > div > div._OXf > h3 > a")).click();
-
-        //Assert the title contains expected text
-        Assert.assertTrue(driver.getTitle().contains("Perfecto"));
     }
 }

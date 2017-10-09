@@ -219,4 +219,4 @@ _Pvt_Extensions/
 ModelManifest.xml
 
 .idea
-.pyc
+*.pyc
