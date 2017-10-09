@@ -18,11 +18,12 @@ class AppiumTest:
         print('Run started')
 
         host = "myHost.perfectomobile.com"
+        token = "myToken"
 
         capabilities = {}
         capabilities['browserName'] = "mobileOS"
         capabilities['platform'] = "ANY"
-        capabilities['securityToken'] = "myToken"
+        capabilities['securityToken'] = token
 
         #Old Credentials:
         #capabilities['user'] = "myUser"

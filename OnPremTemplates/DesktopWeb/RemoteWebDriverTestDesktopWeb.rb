@@ -6,6 +6,8 @@ token = 'myToken'
 
 capabilities = {
   #TODO: Set the Web Machine configuration, for example:
+  #Read more about the available configurations at http://developers.perfectomobile.com/display/PD/Desktop+Web+Devices
+
   :platformName => 'Windows',
   :platformVersion => '10',
   :browserName => 'Firefox',

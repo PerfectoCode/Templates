@@ -6,9 +6,10 @@ capabilities = {
   :browserName => 'mobileOS',
   :platform => 'ANY',
 
-  #TODO: Set your cloud host credentials
-  :user => 'MY_USER',
-  :password => 'MY_PASSWORD',
+  #TODO: Set your security token
+  :securityToken => 'MY_TOKEN',
+  #:user => 'MY_USER',
+  #:password => 'MY_PASSWORD',
 
   #TODO: Set Device ID
   :deviceName => 'MY_DEVICE_ID',

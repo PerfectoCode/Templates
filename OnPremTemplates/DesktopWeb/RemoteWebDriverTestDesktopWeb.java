@@ -16,6 +16,7 @@ public class RemoteWebDriverWebDemo {
         capabilities.setCapability("securityToken", token);
 
         // TODO: Set the Web Machine configuration, for example:
+        // Read more about the available configurations at http://developers.perfectomobile.com/display/PD/Desktop+Web+Devices
         capabilities.setCapability("platformName", "Windows");
         capabilities.setCapability("platformVersion", "8.1");
         capabilities.setCapability("browserName", "Firefox");

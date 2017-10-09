@@ -35,7 +35,7 @@ public class AppiumTest {
         String browserName = "mobileOS";
         DesiredCapabilities capabilities = new DesiredCapabilities(browserName, "", Platform.ANY);
         String host = "myHost.perfectomobile.com";
-        String token = "my security token";
+        String token = "eyJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJhZTBlNThlNS1jZDc4LTQ2ZjYtYmUwMC04ZmY2Y2Y5NjlhMjQiLCJleHAiOjAsIm5iZiI6MCwiaWF0IjoxNTA3MDI4NTQ0LCJpc3MiOiJodHRwczovL2F1dGgucGVyZmVjdG9tb2JpbGUuY29tL2F1dGgvcmVhbG1zL2JyYW5jaHRlc3QtcGVyZmVjdG9tb2JpbGUtY29tIiwiYXVkIjoib2ZmbGluZS10b2tlbi1nZW5lcmF0b3IiLCJzdWIiOiJhYzc5ZTM4NC04YTA1LTQxMzMtYmNjYi01OWQ1NjYwNTgzNTciLCJ0eXAiOiJPZmZsaW5lIiwiYXpwIjoib2ZmbGluZS10b2tlbi1nZW5lcmF0b3IiLCJzZXNzaW9uX3N0YXRlIjoiMWUzZjNlYjAtZDYyYy00ZDUzLWI5MGYtZjRjNDY5OGRiNDEyIiwiY2xpZW50X3Nlc3Npb24iOiI5OWQ0OTA1OS05YTczLTQwYTMtYTQyNC0xZTRkNTNiNDU5Y2YiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50Iiwidmlldy1wcm9maWxlIl19fX0.uhz974LQXQlTcKSWzPZHYH9lj5OJ9zv_JhbhFOKbwCSS49iVoYR2CgzFBGJOALwDoe8uQeqLmYRVSpRlumMPBl8MejZYAa55uH4hUyjBK8HKKhDNlStuRrvzsUGm_ngmmbkOGxAYx68T1EieOm9FVWJ7gqLHwvYTDsRidpjBxgkmbGAnRsAAt-fYUukMwdu2-T4ubcf5Ko5qryxbgCkDpkTlhstL15SVeLmVpsF0zVE3PGePWHOp4oEDWgiQYp1XTkQnHyUre3YqT6U-jHDbMl1WR9m_8IgI7wYjJUMGX54YJgsLZaqrIiymsStUJxlmAIT6nt7KIR_WqgRATcoMeA";
         capabilities.setCapability("securityToken", token);
 
         //old school credentials:
@@ -83,7 +83,7 @@ public class AppiumTest {
         try {
             reportiumClient.testStart("My test name", new TestContext("tag2", "tag3"));
             
-            // write your code here
+            /* write your code here */
             
             // reportiumClient.testStep("step1"); // this is a logical step for reporting
             // add commands...

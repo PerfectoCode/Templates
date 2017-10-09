@@ -26,7 +26,8 @@ namespace PerfectoLabSeleniumTestGoogleHomePage
             var host = "myHost.perfectomobile.com";
             var token = "myToken";
 
-            //TODO: Set the Web Machine configuration, for example:
+            // TODO: Set the Web Machine configuration, for example:
+            // Read more about the available configurations at http://developers.perfectomobile.com/display/PD/Desktop+Web+Devices
             capabilities.SetCapability("platformName", "Windows");
             capabilities.SetCapability("platformVersion", "8.1");
             capabilities.SetCapability("browserName", "Chrome");

@@ -8,6 +8,8 @@ if __name__ == '__main__' :
     print 'Run started'
     
     #TODO: Set the Web Machine configuration, for example:
+    #Read more about the available configurations at http://developers.perfectomobile.com/display/PD/Desktop+Web+Devices
+
     capabilities = {
         'platformName'      : 'Windows',
         'platformVersion'   : '8.1',

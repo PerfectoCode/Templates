@@ -8,5 +8,10 @@ This folder contains code samples for using Selenium Remote WebDriver on desktop
 
 **To do**:
 - Replace MY_HOST.perfectomobile.com with your Perfecto Lab host name
+- Replace myToken with your security token
+
+**Using old credentials:**
 - Replace MY_USER with your Perfecto Lab user name
 - Replace MY_PASSWORD with your Perfecto Lab password
+
+**BE NOTED - Using Fast Web solution require the use of security token instead old credentials**

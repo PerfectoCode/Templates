@@ -86,5 +86,4 @@ class MyTest < Test::Unit::TestCase
             raise exception
         end
     end
-    
 end
