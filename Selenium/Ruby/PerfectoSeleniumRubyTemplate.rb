@@ -24,8 +24,8 @@ class MyTest < Test::Unit::TestCase
       :platformVersion => '',
       :browserName => 'mobileOS',
       :browserVersion => '',
-      :deviceName => '',
       :securityToken => @@Token
+      #:deviceName => '',
       #:user => @@User,
       #:password => @@Pass
     }

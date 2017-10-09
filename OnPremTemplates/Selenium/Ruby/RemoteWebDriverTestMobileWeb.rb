@@ -11,8 +11,8 @@ capabilities = {
   #:user => 'MY_USER',
   #:password => 'MY_PASSWORD',
 
-  #TODO: Set Device ID
-  :deviceName => 'MY_DEVICE_ID',
+  # OPTIONAL: specify your device ID
+  #:deviceName => 'MY_DEVICE_ID',
 
   #TODO: Name your script
   :scriptName => 'RemoteWebDriverTest'

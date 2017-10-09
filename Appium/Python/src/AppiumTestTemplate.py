@@ -29,8 +29,8 @@ class AppiumTest:
         #capabilities['password'] = "myPassword"
 
 
-        # TODO: Change your device ID
-        capabilities['deviceName'] = "12345"
+        # OPTIONAL: specify your device ID
+        #capabilities['deviceName'] = "12345"
 
         # Use the automationName capability to define the required framework - Appium (default) or PerfectoMobile.
         capabilities['automationName'] = "Appium"
