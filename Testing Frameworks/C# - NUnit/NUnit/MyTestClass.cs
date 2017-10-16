@@ -25,15 +25,11 @@ namespace ReportingTests.NUnit
             //click on the search button
             driver.FindElementById("tsbb").Click();
 
-            //Add as many test steps as you want
-            driver.FindElementByCssSelector("#rso > div > div:nth-child(1) > div > div > div._OXf > h3 > a").Click();
-
             //a keyword to validate
             var keyword = "Perfecto"; 
 
             //assert that Keyword is in the page title
             Assert.IsTrue(driver.Title.Contains(keyword));
         }
-
     }
 }
