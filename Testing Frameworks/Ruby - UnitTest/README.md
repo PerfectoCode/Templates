@@ -9,7 +9,10 @@ UnitTest make your life easier by defining global test telmplates,such as before
 #your host url
 host = 'MY_HOST.perfectomobile.com'
 
-#Your perfecto lab username and password
+#Your perfecto lab security token:
+capabilities['securityToken'] = 'MY_TOKEN'
+
+#Old credentials (Not recommended):
 capabilities['user'] = 'MY_USER'
 capabilities['password'] = 'MY_PASS' 
 ```

@@ -3,7 +3,7 @@
 -	Simple test sample
 -	Perfecto Reporting components
 
-:information_source: Click [here](https://github.com/PerfectoCode/Samples/wiki/Reporting) for Reporting Wiki 
+:information_source: Click [here](https://github.com/PerfectoCode/Reporting-Samples) for Reporting Wiki
 
 ## Jar requirements
 - Perfecto Reporting jars [download](https://repository-perfectomobile.forge.cloudbees.com/public/com/perfecto/reporting-sdk/reportium-java/)

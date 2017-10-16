@@ -16,4 +16,4 @@ This repository contains code templates for consuming Perfecto services from dif
 
 Go to the [PerfectoCode Wiki](https://github.com/PerfectoCode/Samples/wiki) for a complete overview of available functionalities.
 
-Visit the [Perfecto Community](https://community.perfectomobile.com/) for an interactive place where you can ask questions, get training materials and more.
+Visit the [Perfecto Documentation](https://developers.perfectomobile.com/) for an interactive place where you can ask questions, get training materials and more.

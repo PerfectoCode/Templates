@@ -32,9 +32,9 @@ class  PerfectoTestingBox < Test::Unit::TestCase
 		}
 
 		#your host url
-		host = 'MY_HOST.perfectomobile.com'
+		host = 'branchtest.perfectomobile.com'
 
-		#Your perfecto lab credentials (using of a security token is recommended)
+		#Your perfecto lab credentials (using security token is recommended)
 		capabilities['securityToken'] = 'MY_TOKEN'
 		#capabilities['user'] = 'MY_USER'
 		#capabilities['password'] = 'MY_PASS'
