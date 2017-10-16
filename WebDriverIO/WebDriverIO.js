@@ -3,7 +3,7 @@ var options = {
         desiredCapabilities: {
              platformName: 'ANDROID',                       
              browserName: 'mobileOS',                                             
-             deviceName: 'yourDeviceID',
+             //deviceName: 'yourDeviceID',
              securityToken: 'yourToken',
              //user: 'yourEmail@perfectomobile.com',
              //password:'yourPassword',

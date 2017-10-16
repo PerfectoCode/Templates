@@ -28,8 +28,8 @@ namespace PerfectoLabSeleniumTestProject
         public void PerfectoOpenConnection()
         {
             var browserName = "mobileOS";
-            var host = "My Cloud";
-            var token = "My Token";
+            var host = "myHost.perfectomobile.com";
+            var token = "myToken";
 
             //var user = "My Username";
             //var password = "My Password";
@@ -40,13 +40,7 @@ namespace PerfectoLabSeleniumTestProject
             //capabilities.SetCapability("user", user);
             //capabilities.SetCapability("password", password);
 
-            //TODO: Provide your device ID
-            capabilities.SetCapability("deviceName", "[ENTER YOUR DEVICE ID HERE]");
-
             capabilities.SetPerfectoLabExecutionId(host);
-
-            // Add a persona to your script (see https://community.perfectomobile.com/posts/1048047-available-personas)
-            //capabilities.SetCapability(WindTunnelUtils.WIND_TUNNEL_PERSONA_CAPABILITY, WindTunnelUtils.GEORGIA);
 
             // Name your script
             // capabilities.SetCapability("scriptName", "RemoteWebDriverTest");
@@ -73,7 +67,7 @@ namespace PerfectoLabSeleniumTestProject
             // Retrieve the URL of the Single Test Report, can be saved to your execution summary and used to download the report at a later point
             String reportURL = reportiumClient.getReportUrl();
 
-            // For documentation on how to export reporting PDF, see https://github.com/perfectocode/samples/wiki/reporting
+            // For documentation on how to export reporting PDF, see https://github.com/PerfectoCode/Reporting-Samples
             String reportPdfUrl = (String)(driver.Capabilities.GetCapability("reportPdfUrl"));
 
             // For detailed documentation on how to export the Execution Summary PDF Report, the Single Test report and other attachments such as

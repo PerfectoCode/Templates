@@ -26,8 +26,8 @@ namespace CSharp
         {
             DesiredCapabilities capabilities = new DesiredCapabilities(string.Empty, string.Empty, new Platform(PlatformType.Any));
 
-            var host = "MY_HOST.perfectomobile.com";
-            var token = "MY_TOKEN";
+            var host = "myHost.perfectomobile.com";
+            var token = "myToken";
             capabilities.SetCapability("securityToken", token);
 
             //Old Credentials:
@@ -35,9 +35,6 @@ namespace CSharp
             //var password = "password";
             //capabilities.SetCapability("user", user);
             //capabilities.SetCapability("password", password);
-
-            //TODO: Provide your device ID
-            capabilities.SetCapability("deviceName", "MY_DEVICE_ID");
 
             // Use this method if you want the script to share the devices with the Perfecto Lab plugin.
             capabilities.SetPerfectoLabExecutionId(host);
@@ -53,10 +50,6 @@ namespace CSharp
             //capabilities.SetCapability("appActivity", ".activities.BrowseActivity");
             // For iOS:
             // capabilities.SetCapability("bundleId", "com.yoctoville.errands");
-
-
-            // Add a persona to your script (see https://community.perfectomobile.com/posts/1048047-available-personas)
-            //capabilities.SetCapability(WindTunnelUtils.WIND_TUNNEL_PERSONA_CAPABILITY, WindTunnelUtils.GEORGIA);
 
             // Name your script
             // capabilities.SetCapability("scriptName", "AppiumTest");

@@ -36,8 +36,8 @@ namespace PerfectoLabAppiumTestProject
         {
             DesiredCapabilities capabilities = new DesiredCapabilities(string.Empty, string.Empty, new Platform(PlatformType.Any));
 
-            var host = "Cloud Address";
-            var token = "Security Token";
+            var host = "myHost.perfectomobile.com";
+            var token = "myToken";
             //var user = "username";
             //var password = "password"
 
@@ -45,8 +45,8 @@ namespace PerfectoLabAppiumTestProject
             //capabilities.SetCapability("user", user);
             //capabilities.SetCapability("password", password);
 
-            //TODO: Provide your device ID
-            capabilities.SetCapability("deviceName", "[ENTER YOUR DEVICE ID HERE]");
+            //OPTIONAL: Provide your device ID
+            //capabilities.SetCapability("deviceName", "[ENTER YOUR DEVICE ID HERE]");
 
             // Use this method if you want the script to share the devices with the Perfecto Lab plugin.
             capabilities.SetPerfectoLabExecutionId(host);

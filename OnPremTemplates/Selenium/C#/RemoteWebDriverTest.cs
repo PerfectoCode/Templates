@@ -22,21 +22,19 @@ namespace CSharp
         public void PerfectoOpenConnection()
         {
             var browserName = "mobileOS";
-            var host = "MY_HOST.perfectomobile.com";
+
+            //TODO: Provide your host and security token
+            var host = "myHost.perfectomobile.com";
+            var token = "myToken"
 
             DesiredCapabilities capabilities = new DesiredCapabilities(browserName, string.Empty, new Platform(PlatformType.Any));
-            capabilities.SetCapability("user", "MY_USER");
 
-            //TODO: Provide your password
-            capabilities.SetCapability("password", "MY_PASSWORD");
+            //Old Credentials (Not recommended)
+            //capabilities.SetCapability("user", "MY_USER");
+            //capabilities.SetCapability("password", "MY_PASSWORD");
 
-            //TODO: Provide your device ID
-            capabilities.SetCapability("deviceName", "MY_DEVICE_ID");
-
+            capabilities.SetCapability("securityToken", token);
             capabilities.SetPerfectoLabExecutionId(host);
-
-            // Add a persona to your script (see https://community.perfectomobile.com/posts/1048047-available-personas)
-            //capabilities.SetCapability(WindTunnelUtils.WIND_TUNNEL_PERSONA_CAPABILITY, WindTunnelUtils.GEORGIA);
 
             // Name your script
             // capabilities.SetCapability("scriptName", "RemoteWebDriverTest");

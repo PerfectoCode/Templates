@@ -18,7 +18,7 @@ Then clicks on the first search result and asserts that the Keyword *Perfecto* e
 - Download the project and import the .sln file to Visual Studio IDE.
 - Set your Perfecto lab User, Password and Host in the [PerfectoTestBox.cs](PerfectoTestBox.cs) file under *TestFixture* annotation.
 ```Csharp
-  const string PERFECTO_TOKEN = "MY_SECURITY_TOKEN";
+  const string PERFECTO_TOKEN = "myToken";
   const string PERFECTO_HOST = "MY_HOST.perfectomobile.com";
 ```
 - Write your tests and add more tests methods with `[TestFixture]` annotation. 
