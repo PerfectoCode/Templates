@@ -15,16 +15,7 @@ describe('Protractor Perfecto Demo', function () {
     browser.driver.findElement(by.css('#tsbb > div')).click();
 
     //Click the first search result
-    browser.driver.findElement(by.css('#rso > div.g.kno-result._rk.mnr-c.g-blk > div > div > div._OKe > div:nth-child(2) > div > div > div > div.rc > div._OXf > h3 > a')).click();
-
-    //Wait to locate element in order to make sure the page loaded      
-    browser.driver.wait(() => {
-      return browser.driver.findElement(by.id('user-content-product-samples'))
-        .then(function (elem) {
-          elem.click();
-          return true;
-        });
-    }, 10000); //Wait timeout interval
+    browser.driver.findElement(by.css("#rso > div:nth-of-type(1) > div._Z1m > div:nth-of-type(1) > a._Olt._bCp")).click();
 
     //Assert that title equals to the expected once
     expect(browser.driver.getTitle()).to.eventually.equal('GitHub - PerfectoCode/Samples: Product Samples');
