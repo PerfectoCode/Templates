@@ -2,11 +2,10 @@ var webdriverio = require('webdriverio');
 var options = {
         desiredCapabilities: {
              platformName: 'ANDROID',                       
-             browserName: 'mobileOS',                                             
-             //deviceName: 'yourDeviceID',
+             browserName: 'chrome',                                             
+             deviceName: 'yourDeviceID',
              securityToken: 'yourToken',
-             //user: 'yourEmail@perfectomobile.com',
-             //password:'yourPassword',
+           
     },
     host: 'yourHost.perfectomobile.com',
     path: '/nexperience/perfectomobile/wd/hub',
